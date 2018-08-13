@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+// conpoments
 import Poll from '../containers/Poll'
+import Home from '../containers/Home'
 
 class App extends Component {
   componentDidMount() {
@@ -12,11 +14,15 @@ class App extends Component {
   }
   render() {
     console.log(this.props)
-    { this.props.users }
     return (
       <Router>
         <Fragment>
-          sddfs
+          <div>
+            Xavier
+          </div>
+          <Route>
+            <Route component={Home} exact path="/" />
+          </Route>
         </Fragment>
       </Router>
     )
@@ -25,7 +31,6 @@ class App extends Component {
 function mapStateToProps({ users, questions }) {
   return {
     users,
-    questions,
   }
 }
 export default connect(mapStateToProps)(App)
