@@ -12,18 +12,20 @@ class App extends Component {
   }
   render() {
     console.log(this.props)
+    { this.props.users }
     return (
       <Router>
         <Fragment>
-          <Route component={Poll} exact path="/" />
+          sddfs
         </Fragment>
       </Router>
     )
   }
 }
-function matStatesToProps({ users }) {
+function mapStateToProps({ users, questions }) {
   return {
     users,
+    questions,
   }
 }
-export default connect(matStatesToProps)(App)
+export default connect(mapStateToProps)(App)

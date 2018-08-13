@@ -1,13 +1,5 @@
-// import actionType from './actionType'
+import { RECEIVES_QUESTIONS, receiveQuestions } from '../actions/questions'
 
-const RECEIVES_QUESTIONS = 'RECEIVES_QUESTIONS'
-
-export function receiveQuestions(users) {
-  return {
-    type: RECEIVES_QUESTIONS,
-    users,
-  }
-}
 export default function questions(state = {}, action) {
   switch (action.type) {
     case RECEIVES_QUESTIONS:

@@ -1,8 +1,8 @@
-export const SETAUTHED_USER = 'SETAUTHED_USER'
-export function setAuthedUser(id) {
+export const RECEIVEUSERS = 'RECEIVEUSERS'
+export function receiveUser(users) {
   return {
-    type: SETAUTHED_USER,
-    id,
+    type: RECEIVEUSERS,
+    users,
   }
 }
 
