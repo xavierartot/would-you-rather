@@ -10,12 +10,12 @@ export function handleInitialData() { // middleware thunk
     _getUsers() // return a promise
       .then((users) => {
         dispatch(showLoading()) // show the loading bar
-        // let's add users, tweets to the redux store
+        // let's add users, to the redux store
         dispatch(receiveUser(users))
       })
     _getQuestions()
       .then((questions) => {
-        dispatch(receiveQuestions(questions))
+        dispatch(receiveQuestions(questions))// let's add questions, to the redux store
         dispatch(hideLoading()) // hide the loading bar
       })
   }

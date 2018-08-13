@@ -7,7 +7,7 @@ const Users = ({ users }) => (
         <img alt={user.id} src="{user.avatarURL}" />
         <span>{user.name}</span>
       </li>
-              )) }
+    )) }
   </div>
 )
 export default Users

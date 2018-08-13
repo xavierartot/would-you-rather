@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 // conpoments
-import Poll from '../containers/Poll'
+// import Poll from '../containers/Poll'
 import Home from '../containers/Home'
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
             Xavier
           </div>
           <Route>
-            <Route component={Home} exact path="/" />
+            <Route component={Home} exact path="/" test="artot" />
           </Route>
         </Fragment>
       </Router>
@@ -30,7 +30,8 @@ class App extends Component {
 }
 function mapStateToProps({ users, questions }) {
   return {
-    users,
+    idUser: users,
+    idQuestions: questions,
   }
 }
 export default connect(mapStateToProps)(App)
