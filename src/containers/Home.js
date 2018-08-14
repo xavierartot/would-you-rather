@@ -1,28 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import Poll from './Poll'
-// import Users from '../conpoments/Users'
+import Modal from '../containers/Modal'
 
 class Home extends Component {
   render() {
-    console.log(this.props.users)
-    const { users } = this.props
-    console.log(users)
+    // const { users } = this.props
     return (
       <div className="Home">
         <h1>Home...</h1>
-        {users.map(user => (
-          <li key={user.id}>{user.id}</li>
-        ))}
-
+        <Modal buttonLabel="open" />
       </div>
     )
   }
 }
 
-function mapStateToProps({ users }) {
-  return {
-    users: Object.values(users),
-  }
-}
-export default connect(mapStateToProps)(Home)
+export default connect()(Home)

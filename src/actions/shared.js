@@ -1,6 +1,8 @@
 // import { showLoading, hideLoading } from 'react-redux-loading'
 import { receiveQuestions } from '../actions/questions'
 import { receiveUsers } from '../actions/users'
+import { setAuthedUser } from '../actions/authedUser'
+
 
 import { getInitialData } from '../utils/_DATA'
 
@@ -14,6 +16,7 @@ export function handleInitialData() { // middleware thunk
         // promise which will pass to us an object with users and questions properties
         // let's add users, questions to the redux store
         dispatch(receiveUsers(users))
+        dispatch(setAuthedUser(null))
         dispatch(receiveQuestions(questions))
         // dispatch(hideLoading()) // hide the loading bar
       })
