@@ -1,8 +1,8 @@
-import { RECEIVEUSERS } from '../actions/users'
+import { RECEIVES_USERS } from '../actions/users'
 
 export function users(state = {}, action) {
   switch (action.type) {
-    case RECEIVEUSERS:
+    case RECEIVES_USERS:
       return {
         ...state,
         ...action.users, // merge users

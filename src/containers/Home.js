@@ -6,14 +6,15 @@ import { connect } from 'react-redux'
 class Home extends Component {
   render() {
     console.log(this.props.users)
-    // const { users } = this.props
-    const listUser = 'map empty'
-    // listUser = users.map(item => <li key={item.id}>{item}</li>)
-
+    const { users } = this.props
+    console.log(users)
     return (
       <div className="Home">
         <h1>Home...</h1>
-        {listUser}
+        {users.map(user => (
+          <li key={user.id}>{user.id}</li>
+        ))}
+
       </div>
     )
   }
@@ -21,7 +22,7 @@ class Home extends Component {
 
 function mapStateToProps({ users }) {
   return {
-    users,
+    users: Object.values(users),
   }
 }
 export default connect(mapStateToProps)(Home)

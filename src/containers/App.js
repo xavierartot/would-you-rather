@@ -12,16 +12,13 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
-    console.log(this.props.idUsers)
     return (
       <Router>
         <Fragment>
           <div>
             Xavier
           </div>
-          <Home>
-            xav
-          </Home>
+          <Home />
           <Route>
             <Route component={Home} exact path="/" test="artot" />
           </Route>
@@ -32,7 +29,7 @@ class App extends Component {
 }
 function mapStateToProps({ questions, users }) {
   return {
-    idUsers: users,
+    idUsers: Object.values(users),
     idQuestions: questions,
   }
 }
