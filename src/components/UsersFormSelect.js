@@ -16,6 +16,7 @@ class UsersFormSelect extends Component {
     return (
       <div className="usersFormSelect">
         <Input onChange={this.handleChange} type="select">
+          <option value="null">Select the login</option>
           { users.map(user => (
             <option key={user.id} value={user.id}>{user.name}</option>
       )) }

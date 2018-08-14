@@ -19,7 +19,7 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Modal className={this.props.className} isOpen={this.state.modal}>
+        <Modal isOpen={this.state.modal}>
           <ModalHeader>Login to The Game</ModalHeader>
           <ModalBody>
             <p>Choose Your User</p>
@@ -30,9 +30,9 @@ class ModalExample extends React.Component {
     )
   }
 }
-function mapToStateProps({ users }) {
+function mapToStateProps({ authedUsers }) {
   return {
-    users: Object.values(users),
+    authedUsers,
   }
 }
 export default connect(mapToStateProps)(ModalExample)

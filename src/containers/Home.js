@@ -5,14 +5,23 @@ import Modal from '../containers/Modal'
 
 class Home extends Component {
   render() {
+    console.log(this.props.authedUser)
     // const { users } = this.props
     return (
       <div className="Home">
         <h1>Home...</h1>
-        <Modal buttonLabel="open" />
+        { this.props.authedUser === null
+        ? <Modal buttonLabel="open" />
+        : null
+        }
       </div>
     )
   }
 }
 
-export default connect()(Home)
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  }
+}
+export default connect(mapStateToProps)(Home)

@@ -5,7 +5,7 @@ import { handleInitialData } from '../actions/shared'
 // conpoments
 // import Poll from '../containers/Poll'
 import Home from '../containers/Home'
-import Modal from '../containers/Modal'
+import Header from '../containers/Header'
 
 class App extends Component {
   componentDidMount() {
@@ -16,12 +16,9 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <div>
-            Xavier
-          </div>
+          <Header />
           <Home />
           <Route component={Home} exact path="/home" />
-          <Route component={Modal} exact path="/" />
         </Fragment>
       </Router>
     )
