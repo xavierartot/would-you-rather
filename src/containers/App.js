@@ -9,17 +9,19 @@ import Home from '../containers/Home'
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
-
     dispatch(handleInitialData())
   }
   render() {
-    console.log(this.props)
+    console.log(this.props.idUsers)
     return (
       <Router>
         <Fragment>
           <div>
             Xavier
           </div>
+          <Home>
+            xav
+          </Home>
           <Route>
             <Route component={Home} exact path="/" test="artot" />
           </Route>
@@ -28,9 +30,9 @@ class App extends Component {
     )
   }
 }
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ questions, users }) {
   return {
-    idUser: users,
+    idUsers: users,
     idQuestions: questions,
   }
 }

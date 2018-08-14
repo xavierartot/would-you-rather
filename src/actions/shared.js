@@ -1,22 +1,21 @@
-import { showLoading, hideLoading } from 'react-redux-loading'
+// import { showLoading, hideLoading } from 'react-redux-loading'
 import { receiveQuestions } from '../actions/questions'
-import { receiveUser } from '../actions/users'
+import { receiveUsers } from '../actions/users'
 
-import { _getUsers, _getQuestions } from '../utils/_DATA'
+import { getInitialData } from '../utils/_DATA'
 
+// Retrieve initial data from database
 
 export function handleInitialData() { // middleware thunk
   return (dispatch, getState) => { // thunk pattern with redux-thunk
-    _getUsers() // return a promise
-      .then((users) => {
-        dispatch(showLoading()) // show the loading bar
-        // let's add users, to the redux store
-        dispatch(receiveUser(users))
-      })
-    _getQuestions()
-      .then((questions) => {
-        dispatch(receiveQuestions(questions))// let's add questions, to the redux store
-        dispatch(hideLoading()) // hide the loading bar
+    getInitialData() // return a promise
+      .then(({ users, questions }) => {
+        // dispatch(showLoading()) // show the loading bar
+        // promise which will pass to us an object with users and questions properties
+        // let's add users, questions to the redux store
+        dispatch(receiveUsers(users))
+        dispatch(receiveQuestions(questions))
+        // dispatch(hideLoading()) // hide the loading bar
       })
   }
 }

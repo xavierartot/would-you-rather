@@ -3,7 +3,7 @@ import questions from './questions'
 import { users } from './users'
 
 export default combineReducers({
-  questions,
   users,
+  questions,
   // loadingBar: loadingBarReducer, // react-redux-loading
 })

@@ -7,7 +7,7 @@ export function users(state = {}, action) {
         ...state,
         ...action.users, // merge users
       }
-    default: return state
+    default:
+      return state
   }
 }
-
