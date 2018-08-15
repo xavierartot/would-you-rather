@@ -24,10 +24,4 @@ class App extends Component {
     )
   }
 }
-function mapStateToProps({ questions, users }) {
-  return {
-    idUsers: Object.values(users),
-    idQuestions: questions,
-  }
-}
-export default connect(mapStateToProps)(App)
+export default connect()(App)

@@ -16,7 +16,7 @@ export function handleInitialData() { // middleware thunk
         // promise which will pass to us an object with users and questions properties
         // let's add users, questions to the redux store
         dispatch(receiveUsers(users))
-        dispatch(setAuthedUser(null))
+        dispatch(setAuthedUser('sarahedo')) // null by default
         dispatch(receiveQuestions(questions))
         // dispatch(hideLoading()) // hide the loading bar
       })
