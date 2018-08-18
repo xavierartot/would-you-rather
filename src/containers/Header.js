@@ -20,7 +20,7 @@ class Header extends Component {
     dispatch(unAuthedUser(null))// logout
   }
   render() {
-    const { authedUser, user } = this.props
+    const { authedUser, user, color } = this.props
     console.log(user)
     return (
       <div className="Header mb-3">
@@ -29,13 +29,28 @@ class Header extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink onClick={this.logout} to="/home">
-                  <Button>logout</Button>
+              <NavItem className="d-flex align-items-center">
+                <NavLink className={`text-${color}`} to="/">
+                  Home
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex align-items-center">
-                <NavLink >login name:
+                <NavLink className={`text-${color}`} to="/leaderboard">
+                  Leader Board
+                </NavLink>
+              </NavItem>
+              <NavItem className="d-flex align-items-center">
+                <NavLink className={`text-${color}`} to="/add">
+                  New WYR
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className={`text-${color}`} onClick={this.logout} to="/home">
+                  <Button className={`btn-${color}`}>logout</Button>
+                </NavLink>
+              </NavItem>
+              <NavItem className="d-flex align-items-center">
+                <NavLink className={`text-${color}`}> name:
                   <span className="font-weight-bold">{user.name}</span>
                 </NavLink>
               </NavItem>
@@ -46,11 +61,12 @@ class Header extends Component {
     )
   }
 }
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, users, template }) {
   const user = { ...users[authedUser] }
   return {
     authedUser,
     user,
+    color: template.color,
   }
 }
 export default connect(mapStateToProps)(Header)

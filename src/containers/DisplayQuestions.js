@@ -8,32 +8,32 @@ import {
 
 class DisplayQuestions extends Component {
   render() {
-    const { idQuestions, user } = this.props
+    const { idQuestions, user, color } = this.props
 
     if (idQuestions === null) {
       return <p>This question doesn't exist</p>
     }
-    console.log(idQuestions)
+    // console.log(idQuestions)
     return (
       <div>
         <CardSubtitle className="mb-3">Create by: {user.name}</CardSubtitle>
         <div className="card-text">
           <ListGroup>
-            <ListGroupItem className="justify-content-between">
+            <ListGroupItem className="justify-content-between pl-2">
+              <Badge className="mr-2" pill>1</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
-                <Button className="mr-2">
+                <button className={`btn btn-${color}`}>
                   {idQuestions.optionOne.text}
-                </Button>
+                </button>
               </Link>
-              <Badge pill>1</Badge>
             </ListGroupItem>
-            <ListGroupItem className="justify-content-between">
+            <ListGroupItem className="justify-content-between pl-2">
+              <Badge className="mr-2" pill>2</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
-                <Button className="mr-2">
+                <button className={`btn btn-${color}`}>
                   {idQuestions.optionTwo.text}
-                </Button>
+                </button>
               </Link>
-              <Badge pill>2</Badge>
             </ListGroupItem>
           </ListGroup>
         </div>
@@ -41,10 +41,13 @@ class DisplayQuestions extends Component {
     )
   }
 }
-function mapStateToProps({ questions, authedUser, users }, { idQuestions }) {
+function mapStateToProps({
+  questions, authedUser, users, template,
+}, { idQuestions }) {
   return {
     idQuestions: questions[idQuestions] || null,
     user: users[authedUser],
+    color: template.color,
   }
 }
 export default withRouter(connect(mapStateToProps)(DisplayQuestions))

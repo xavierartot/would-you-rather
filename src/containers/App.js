@@ -6,6 +6,8 @@ import { handleInitialData } from '../actions/shared'
 // import Poll from '../containers/Poll'
 import Home from '../containers/Home'
 import Header from '../containers/Header'
+import LeaderBoard from '../containers/LeaderBoard'
+import Add from '../containers/Add'
 
 class App extends Component {
   componentDidMount() {
@@ -13,14 +15,14 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
-    // console.log(this.props.questionsUnAnswered)
-    // console.log(this.props.questionsAnswered)
     return (
       <Router>
         <Fragment>
           <Header />
           <Home />
           <Route component={Home} exact path="/" />
+          <Route component={LeaderBoard} exact path="/leaderboard" />
+          <Route component={Add} exact path="/add" />
         </Fragment>
       </Router>
     )

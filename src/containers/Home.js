@@ -10,7 +10,8 @@ import PropTypes from 'prop-types'
 
 class Home extends Component {
   static propTypes = {
-    idQuestions: PropTypes.string,
+    questionsUnAnswered: PropTypes.array.isRequired,
+    questionsAnswered: PropTypes.array.isRequired,
   }
   render() {
     const { questionsUnAnswered, questionsAnswered, authedUser } = this.props
@@ -22,7 +23,7 @@ class Home extends Component {
       <div className="Home">
         <Row className="justify-content-md-center">
           <Col className="col-md-auto mb-3" sm="6" sm="12">
-            <Card className="mb-3">
+            <Card className="mb-3 shadow rounded">
               <CardBody>
                 <CardTitle className="mb-0">
                   {authedUser } Answered  <Badge>{ questionsAnswered.length}</Badge> games
