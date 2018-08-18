@@ -10,6 +10,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Button,
 } from 'reactstrap'
 
 class Header extends Component {
@@ -19,19 +20,24 @@ class Header extends Component {
     dispatch(unAuthedUser(null))// logout
   }
   render() {
-    const { authedUser } = this.props
+    const { authedUser, user } = this.props
+    console.log(user)
     return (
-      <div className="Header">
+      <div className="Header mb-3">
         <Navbar color="light" expand="md" light>
           <NavbarBrand href="/">Game: Would You Rather</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink onClick={this.logout} to="/home">logout</NavLink>
+                <NavLink onClick={this.logout} to="/home">
+                  <Button>logout</Button>
+                </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink>name: { authedUser} </NavLink>
+              <NavItem className="d-flex align-items-center">
+                <NavLink >login name:
+                  <span className="font-weight-bold">{user.name}</span>
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -40,9 +46,11 @@ class Header extends Component {
     )
   }
 }
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
+  const user = { ...users[authedUser] }
   return {
     authedUser,
+    user,
   }
 }
 export default connect(mapStateToProps)(Header)

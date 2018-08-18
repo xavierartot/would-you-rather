@@ -1,26 +1,63 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Poll from './Poll'
+// import Poll from './Poll'
 import Modal from '../containers/Modal'
-// import has from 'lodash/has'
-// import flattenDepth from 'lodash/flattenDepth'
-// import pick from 'lodash/pick'
-// import isArray from 'lodash/isArray'
-// import get from 'lodash/get'
-// import filter from 'lodash/filter'
 import pullAll from 'lodash/pullAll'
+import DisplayQuestions from './DisplayQuestions'
+import { Card, Row, Col, CardTitle, CardBody, Badge } from 'reactstrap'
+
+import PropTypes from 'prop-types'
 
 class Home extends Component {
+  static propTypes = {
+    idQuestions: PropTypes.string,
+  }
   render() {
-    const { IdsQuestions } = this.props
-    // console.log(IdsQuestions)
+    const { questionsUnAnswered, questionsAnswered, authedUser } = this.props
     if (this.props.authedUser === null) {
       return <Modal buttonLabel="open" />
     }
+
     return (
       <div className="Home">
-        <h1>Polls</h1>
-        <Poll IdsQuestions={IdsQuestions} />
+        <Row className="justify-content-md-center">
+          <Col className="col-md-auto mb-3" sm="6" sm="12">
+            <Card className="mb-3">
+              <CardBody>
+                <CardTitle className="mb-0">
+                  {authedUser } Answered  <Badge>{ questionsAnswered.length}</Badge> games
+                </CardTitle>
+              </CardBody>
+            </Card>
+            {questionsAnswered.map(item => (
+              <Card key={item} body className="mb-3">
+                <DisplayQuestions
+                  idQuestions={item}
+                  tag="div"
+                />
+              </Card>
+              ))
+            }
+          </Col>
+          <Col className="col-md-auto mb-3" sm="6" sm="12">
+            <Card className="mb-3">
+              <CardBody>
+                <CardTitle className="mb-0">
+                  {authedUser } Unanswered  <Badge>{ questionsUnAnswered.length}</Badge> games
+                </CardTitle>
+              </CardBody>
+            </Card>
+            {questionsUnAnswered.map(item => (
+              <Card key={item} body className="mb-3">
+                <DisplayQuestions
+                  idQuestions={item}
+                  tag="div"
+                />
+              </Card>
+              ))
+            }
+          </Col>
+        </Row>
       </div>
     )
   }
@@ -41,13 +78,16 @@ function mapStateToProps({ authedUser, users, questions }) {
   // les questions sont filtrés par les réponses réponduent
   let q = { ...questions }// destructure les questions
   q = Object.keys(q)// ont récupuere toutes les ids et ont les mets dans un tableau
+  // console.log(q, qa)
   const qr = pullAll(q, qa) // Lodash method, compare and  les reponses  avec les questionsAnswered
   questionsUnAnswered = qr
   // console.log(questionsUnAnswered)
 
   return {
     authedUser,
-    IdsQuestions: [questionsAnswered, questionsUnAnswered], // // concat in an Array the answers
+    questionsAnswered,
+    questionsUnAnswered,
   }
 }
 export default connect(mapStateToProps)(Home)
+

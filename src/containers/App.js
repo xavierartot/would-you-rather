@@ -13,12 +13,14 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
+    // console.log(this.props.questionsUnAnswered)
+    // console.log(this.props.questionsAnswered)
     return (
       <Router>
         <Fragment>
           <Header />
           <Home />
-          <Route component={Home} exact path="/home" />
+          <Route component={Home} exact path="/" />
         </Fragment>
       </Router>
     )
