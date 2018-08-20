@@ -18,7 +18,7 @@ class App extends Component {
   }
   render() {
     if (this.props.color === undefined) {
-      this.props.dispatch(handleTemplate(templateBootstrap()))
+      this.props.dispatch(handleTemplate(templateBootstrap('darked')))
     }
     return (
       <Router>
@@ -27,8 +27,8 @@ class App extends Component {
           <div>
             <Route component={LeaderBoard} path="/leaderboard" />
             <Route component={Home} exact path="/" />
-            <Route component={Add} path="/add/:id" />
-            <Route component={Poll} path="/Poll" />
+            <Route component={Add} path="/add" />
+            <Route component={Poll} path="/Poll/:id" />
           </div>
         </Fragment>
       </Router>

@@ -1,0 +1,104 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+6ni6ok3ym7mf1p33lnez	src/utils/_DATA.js	/^  '6ni6ok3ym7mf1p33lnez': {$/;"	o
+8xf0y6ziyjabvozdd253nd	src/utils/_DATA.js	/^  '8xf0y6ziyjabvozdd253nd': {$/;"	o
+Add	src/containers/Add.js	/^class Add extends Component {$/;"	c
+App	src/containers/App.js	/^class App extends Component {$/;"	c
+CHANGE_TEMPLATE	src/actions/template.js	/^export const CHANGE_TEMPLATE = 'CHANGE_TEMPLATE'$/;"	n
+Change	src/components/UsersFormSelect.js	/^        <Input onChange={this.handleChange} type="select">$/;"	c
+Change	src/components/UsersFormSelect.js	/^  handleChange= (event) => {$/;"	c
+Click	src/containers/Header.js	/^          <NavbarToggler onClick={this.toggle} \/>$/;"	c
+DisplayQuestions	src/containers/DisplayQuestions.js	/^class DisplayQuestions extends Component {$/;"	c
+Features	.eslintrc.js	/^    ecmaFeatures: {$/;"	c
+Header	src/containers/Header.js	/^class Header extends Component {$/;"	c
+Home	src/containers/Home.js	/^class Home extends Component {$/;"	c
+LeaderBoard	src/containers/LeaderBoard.js	/^class LeaderBoard extends Component {$/;"	c
+ModalExample	src/containers/Modal.js	/^class ModalExample extends React.Component {$/;"	c
+Name	src/containers/DisplayQuestions.js	/^                <button className={`btn btn-outline-${color}`}>$/;"	c
+Name	src/containers/DisplayQuestions.js	/^            <MdPlaylistAdd className={`text-${color} plus-icons `} \/>$/;"	c
+Name	src/containers/Header.js	/^                  <Button className={`btn-${color}`}>logout<\/Button>$/;"	c
+Name	src/containers/Header.js	/^                <NavLink className={`text-${color}`} id="Popover1" onClick={this.togglePopHover}> name:$/;"	c
+Name	src/containers/Header.js	/^                <NavLink className={`text-${color}`} onClick={this.logout} to="\/home">$/;"	c
+Name	src/containers/Header.js	/^                <NavLink className={`text-${color}`} tag={Link} to="\/">$/;"	c
+Name	src/containers/Header.js	/^                <NavLink className={`text-${color}`} tag={Link} to="\/add">$/;"	c
+Name	src/containers/Header.js	/^                <NavLink className={`text-${color}`} tag={Link} to="\/leaderboard">$/;"	c
+One	src/utils/_DATA.js	/^    optionOne: {$/;"	c
+Open	src/containers/Header.js	/^                <Popover isOpen={this.state.popoverOpen} placement="bottom" target="Popover1" toggle={this.togglePopHover}>$/;"	c
+Open	src/containers/Header.js	/^          <Collapse isOpen={this.state.isOpen} navbar>$/;"	c
+Open	src/containers/Modal.js	/^        <Modal isOpen={this.state.modal}>$/;"	c
+Options	.eslintrc.js	/^  parserOptions: {$/;"	c
+Poll	src/containers/Poll.js	/^class Poll extends Component {$/;"	c
+PopHover	src/containers/Header.js	/^  togglePopHover = () => {$/;"	c
+Question	src/utils/_DATA.js	/^    const formattedQuestion = formatQuestion(question)$/;"	c
+Questions	src/containers/Home.js	/^                  idQuestions={item}$/;"	c
+RECEIVES_QUESTIONS	src/actions/questions.js	/^export const RECEIVES_QUESTIONS = 'RECEIVES_QUESTIONS'$/;"	n
+RECEIVES_USERS	src/actions/users.js	/^export const RECEIVES_USERS = 'RECEIVE_USERS'$/;"	n
+SET_AUTHED_USER	src/actions/authedUser.js	/^export const SET_AUTHED_USER = 'SET_AUTHED_USER'$/;"	n
+Two	src/utils/_DATA.js	/^    optionTwo: {$/;"	c
+Types	src/containers/Home.js	/^  static propTypes = {$/;"	c
+UN_AUTHED_USER	src/actions/unAuthedUser.js	/^export const UN_AUTHED_USER = 'UN_AUTHED_USER'$/;"	n
+User	src/containers/Modal.js	/^  loginUser = (event) => {$/;"	c
+Users	src/components/Users.js	/^const Users = ({ users }) => ($/;"	c
+UsersFormSelect	src/components/UsersFormSelect.js	/^class UsersFormSelect extends Component {$/;"	c
+_getQuestions	src/utils/_DATA.js	/^export function _getQuestions() {$/;"	f
+_getUsers	src/utils/_DATA.js	/^export function _getUsers() {$/;"	f
+_saveQuestion	src/utils/_DATA.js	/^export function _saveQuestion(question) {$/;"	f
+_saveQuestionAnswer	src/utils/_DATA.js	/^export function _saveQuestionAnswer({ authedUser, qid, answer }) {$/;"	f
+am8ehyc8byjqgar0jgpub9	src/utils/_DATA.js	/^  am8ehyc8byjqgar0jgpub9: {$/;"	o
+answers	src/utils/_DATA.js	/^          answers: {$/;"	o
+answers	src/utils/_DATA.js	/^    answers: {$/;"	o
+as	src/containers/Header.js	/^                  <PopoverHeader>login as :{id}<\/PopoverHeader>$/;"	o
+authedUser	src/reducers/authedUser.js	/^export default function authedUser(state = null, action) {$/;"	f
+by	src/containers/DisplayQuestions.js	/^          <CardSubtitle className="d-flex align-items-center">Create by: {user.name}<\/CardSubtitle>$/;"	o
+changeTemplate	src/actions/template.js	/^export function changeTemplate(color) {$/;"	f
+componentDidMount	src/containers/App.js	/^  componentDidMount() {$/;"	f
+ecmaFeatures	.eslintrc.js	/^    ecmaFeatures: {$/;"	o
+exports	.eslintrc.js	/^module.exports = {$/;"	o
+formatQuestion	src/utils/_DATA.js	/^function formatQuestion({ optionOneText, optionTwoText, author }) {$/;"	f
+generateUID	src/utils/_DATA.js	/^function generateUID() {$/;"	f
+getInitialData	src/utils/_DATA.js	/^export function getInitialData() {$/;"	f
+handleInitialData	src/actions/shared.js	/^export function handleInitialData() { \/\/ middleware thunk$/;"	f
+handleTemplate	src/actions/template.js	/^export function handleTemplate(color) {$/;"	f
+if	src/containers/App.js	/^    if (this.props.color === undefined) {$/;"	f
+if	src/containers/DisplayQuestions.js	/^    if (idQuestions === null) {$/;"	f
+if	src/containers/Home.js	/^    if (this.props.authedUser === null) {$/;"	f
+johndoe	src/utils/_DATA.js	/^  johndoe: {$/;"	o
+loxhs1bqm25b708cmbf3g	src/utils/_DATA.js	/^  loxhs1bqm25b708cmbf3g: {$/;"	o
+mapStateToProps	src/containers/App.js	/^function mapStateToProps({ template }, props) {$/;"	f
+mapStateToProps	src/containers/Header.js	/^function mapStateToProps({ authedUser, users, template }) {$/;"	f
+mapToStateProps	src/components/UsersFormSelect.js	/^function mapToStateProps({ users }) {$/;"	f
+mapToStateProps	src/containers/Modal.js	/^function mapToStateProps({ authedUsers }) {$/;"	f
+name	src/containers/Header.js	/^                    <p className="mb-0">name: {name}<\/p>$/;"	o
+optionOne	src/utils/_DATA.js	/^    optionOne: {$/;"	o
+optionTwo	src/utils/_DATA.js	/^    optionTwo: {$/;"	o
+parserOptions	.eslintrc.js	/^  parserOptions: {$/;"	o
+questions	src/reducers/questions.js	/^export default function questions(state = {}, action) {$/;"	f
+receiveQuestions	src/actions/questions.js	/^export function receiveQuestions(questions) {$/;"	f
+receiveUsers	src/actions/users.js	/^export function receiveUsers(users) {$/;"	f
+render	src/components/UsersFormSelect.js	/^  render() {$/;"	f
+render	src/containers/Add.js	/^  render() {$/;"	f
+render	src/containers/App.js	/^  render() {$/;"	f
+render	src/containers/DisplayQuestions.js	/^  render() {$/;"	f
+render	src/containers/Header.js	/^  render() {$/;"	f
+render	src/containers/Home.js	/^  render() {$/;"	f
+render	src/containers/LeaderBoard.js	/^  render() {$/;"	f
+render	src/containers/Modal.js	/^  render() {$/;"	f
+render	src/containers/Poll.js	/^  render() {$/;"	f
+rules	.eslintrc.js	/^  rules: {$/;"	o
+sarahedo	src/utils/_DATA.js	/^  sarahedo: {$/;"	o
+setAuthedUser	src/actions/authedUser.js	/^export function setAuthedUser(id) {$/;"	f
+switch	src/reducers/authedUser.js	/^  switch (action.type) {$/;"	f
+switch	src/reducers/questions.js	/^  switch (action.type) {$/;"	f
+switch	src/reducers/template.js	/^  switch (action.type) {$/;"	f
+switch	src/reducers/users.js	/^  switch (action.type) {$/;"	f
+template	src/reducers/template.js	/^export default function template(state = {}, action) {$/;"	f
+templateBootstrap	src/utils/template.js	/^export default function templateBootstrap() {$/;"	f
+tylermcginnis	src/utils/_DATA.js	/^  tylermcginnis: {$/;"	o
+unAuthedUser	src/actions/unAuthedUser.js	/^export function unAuthedUser(id) {$/;"	f
+users	src/reducers/users.js	/^export function users(state = {}, action) {$/;"	f
+vthrdm985a262al8qx3do	src/utils/_DATA.js	/^  vthrdm985a262al8qx3do: {$/;"	o
+xj352vofupe1dqz9emx13r	src/utils/_DATA.js	/^  xj352vofupe1dqz9emx13r: {$/;"	o

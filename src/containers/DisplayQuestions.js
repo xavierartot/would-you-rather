@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
 import { ListGroup, ListGroupItem, Badge, CardSubtitle } from 'reactstrap'
 // import { IoMdAdd } from 'react-icons/io'
-import { MdPlaylistAdd } from 'react-icons/md'
+// import { MdPlaylistAdd } from 'react-icons/md'
+import { MdViewList } from 'react-icons/md'
 
 // import { FaBeer } from 'react-icons/fa'
 
@@ -19,8 +20,8 @@ class DisplayQuestions extends Component {
       <div>
         <div className="d-flex justify-content-between mb-3">
           <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle>
-          <Link className="d-flex align-items-center" to={`/add/${id}`}>
-            <MdPlaylistAdd className={`text-${color} plus-icons `} />
+          <Link className="d-flex align-items-center" to={`/poll/${id}`}>
+            <MdViewList className={`text-${color} plus-icons `} />
           </Link>
         </div>
         <div className="card-text">
