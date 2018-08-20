@@ -8,7 +8,6 @@ export function changeTemplate(color) {
 }
 export function handleTemplate(color) {
   return (dispatch, getState) => {
-    const { authedUser } = getState()
     dispatch(changeTemplate(color))
   }
 }

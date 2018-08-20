@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://avatars2.githubusercontent.com/u/5130192?s=400&u=4d54b781389b1bdf240a79fb267abe0b3d90fd15&v=4',
+    avatarURL: 'https://github.com/sdras.png',
     answers: {
       '8xf0y6ziyjabvozdd253nd': 'optionOne',
       '6ni6ok3ym7mf1p33lnez': 'optionOne',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://avatars2.githubusercontent.com/u/5130192?s=400&u=4d54b781389b1bdf240a79fb267abe0b3d90fd15&v=4',
+    avatarURL: 'https://github.com/tylermcginnis.png',
     answers: {
       vthrdm985a262al8qx3do: 'optionOne',
       xj352vofupe1dqz9emx13r: 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://avatars2.githubusercontent.com/u/5130192?s=400&u=4d54b781389b1bdf240a79fb267abe0b3d90fd15&v=4',
+    avatarURL: 'https://github.com/gaearon.png',
     answers: {
       xj352vofupe1dqz9emx13r: 'optionOne',
       vthrdm985a262al8qx3do: 'optionTwo',

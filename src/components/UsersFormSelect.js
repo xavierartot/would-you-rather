@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Input } from 'reactstrap'
 import { setAuthedUser } from '../actions/authedUser'
 import { handleTemplate } from '../actions/template'
-import random from 'lodash/random'
+import templateBootstrap from '../utils/template'
 
 class UsersFormSelect extends Component {
   handleChange= (event) => {
@@ -11,18 +11,7 @@ class UsersFormSelect extends Component {
     const { dispatch } = this.props,
       value = event.target.value
     value && dispatch(setAuthedUser(value))
-
-    const arrayColors = [
-      'primary',
-      'secondary',
-      'success',
-      'danger',
-      'warning',
-      'info',
-      'dark',
-    ]
-    const randColor = arrayColors[random(0, arrayColors.length)]
-    value && dispatch(handleTemplate(randColor))
+    value && dispatch(handleTemplate(templateBootstrap()))
   }
 
   render() {

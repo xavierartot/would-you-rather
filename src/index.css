@@ -13,3 +13,6 @@ body {
 a {
   cursor: pointer;
 }
+.plus-icons {
+  font-size: 2em;
+}

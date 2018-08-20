@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import Poll from './Poll'
+import PropTypes from 'prop-types'
 import Modal from '../containers/Modal'
 import pullAll from 'lodash/pullAll'
 import DisplayQuestions from './DisplayQuestions'
 import { Card, Row, Col, CardTitle, CardBody, Badge } from 'reactstrap'
 
-import PropTypes from 'prop-types'
-
 class Home extends Component {
   static propTypes = {
-    questionsUnAnswered: PropTypes.array.isRequired,
-    questionsAnswered: PropTypes.array.isRequired,
+    authedUser: PropTypes.string,
+    color: PropTypes.string,
+    questionsUnAnswered: PropTypes.array,
+    questionsAnswered: PropTypes.array,
   }
   render() {
-    const { questionsUnAnswered, questionsAnswered, authedUser } = this.props
+    const {
+      questionsUnAnswered, questionsAnswered, authedUser, color,
+    } = this.props
     if (this.props.authedUser === null) {
       return <Modal buttonLabel="open" />
     }
@@ -22,11 +24,11 @@ class Home extends Component {
     return (
       <div className="Home">
         <Row className="justify-content-md-center">
-          <Col className="col-md-auto mb-3" sm="6" sm="12">
+          <Col className="col-md-auto mb-3" sm="6" xs="12">
             <Card className="mb-3 shadow rounded">
               <CardBody>
                 <CardTitle className="mb-0">
-                  {authedUser } Answered  <Badge>{ questionsAnswered.length}</Badge> games
+                  {authedUser } Answered  <Badge color={color}>{ questionsAnswered.length}</Badge> games
                 </CardTitle>
               </CardBody>
             </Card>
@@ -40,11 +42,11 @@ class Home extends Component {
               ))
             }
           </Col>
-          <Col className="col-md-auto mb-3" sm="6" sm="12">
+          <Col className="col-md-auto mb-3" sm="6" xs="12">
             <Card className="mb-3">
               <CardBody>
                 <CardTitle className="mb-0">
-                  {authedUser } Unanswered  <Badge>{ questionsUnAnswered.length}</Badge> games
+                  {authedUser } Unanswered  <Badge color={color}>{ questionsUnAnswered.length}</Badge> games
                 </CardTitle>
               </CardBody>
             </Card>
@@ -64,7 +66,9 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }) {
+function mapStateToProps({
+  authedUser, users, questions, template,
+}) {
   let questionsAnswered = Object.values(users)
     .filter(e => e.id === authedUser)
     .map(e => e.answers)
@@ -88,6 +92,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     authedUser,
     questionsAnswered,
     questionsUnAnswered,
+    color: template.color,
   }
 }
 export default connect(mapStateToProps)(Home)

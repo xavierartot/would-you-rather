@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import { handleTemplate } from '../actions/template'
+import templateBootstrap from '../utils/template'
 // conpoments
-// import Poll from '../containers/Poll'
+import Poll from '../containers/Poll'
 import Home from '../containers/Home'
 import Header from '../containers/Header'
 import LeaderBoard from '../containers/LeaderBoard'
@@ -15,17 +17,28 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
+    if (this.props.color === undefined) {
+      this.props.dispatch(handleTemplate(templateBootstrap()))
+    }
     return (
       <Router>
         <Fragment>
           <Header />
-          <Home />
-          <Route component={Home} exact path="/" />
-          <Route component={LeaderBoard} exact path="/leaderboard" />
-          <Route component={Add} exact path="/add" />
+          <div>
+            <Route component={LeaderBoard} path="/leaderboard" />
+            <Route component={Home} exact path="/" />
+            <Route component={Add} path="/add/:id" />
+            <Route component={Poll} path="/Poll" />
+          </div>
         </Fragment>
       </Router>
     )
   }
 }
-export default connect()(App)
+
+function mapStateToProps({ template }, props) {
+  return {
+    color: template.color,
+  }
+}
+export default connect(mapStateToProps)(App)

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
-import {
-  ListGroup, ListGroupItem, Badge,
-  Card, Button, CardTitle, CardText, Row, Col, CardSubtitle,
-} from 'reactstrap'
+import { ListGroup, ListGroupItem, Badge, CardSubtitle } from 'reactstrap'
+// import { IoMdAdd } from 'react-icons/io'
+import { MdPlaylistAdd } from 'react-icons/md'
+
+// import { FaBeer } from 'react-icons/fa'
 
 class DisplayQuestions extends Component {
   render() {
@@ -13,25 +14,30 @@ class DisplayQuestions extends Component {
     if (idQuestions === null) {
       return <p>This question doesn't exist</p>
     }
-    // console.log(idQuestions)
+    const { id, optionTwo, optionOne } = idQuestions
     return (
       <div>
-        <CardSubtitle className="mb-3">Create by: {user.name}</CardSubtitle>
+        <div className="d-flex justify-content-between mb-3">
+          <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle>
+          <Link className="d-flex align-items-center" to={`/add/${id}`}>
+            <MdPlaylistAdd className={`text-${color} plus-icons `} />
+          </Link>
+        </div>
         <div className="card-text">
           <ListGroup>
             <ListGroupItem className="justify-content-between pl-2">
-              <Badge className="mr-2" pill>1</Badge>
+              <Badge className="mr-2" color={color} pill>1</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
-                <button className={`btn btn-${color}`}>
-                  {idQuestions.optionOne.text}
+                <button className={`btn btn-outline-${color}`}>
+                  {optionOne.text}
                 </button>
               </Link>
             </ListGroupItem>
             <ListGroupItem className="justify-content-between pl-2">
-              <Badge className="mr-2" pill>2</Badge>
+              <Badge className="mr-2" color={color} pill>2</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
-                <button className={`btn btn-${color}`}>
-                  {idQuestions.optionTwo.text}
+                <button className={`btn btn-outline-${color}`}>
+                  {optionTwo.text}
                 </button>
               </Link>
             </ListGroupItem>
