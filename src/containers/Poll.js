@@ -6,25 +6,35 @@ import AnsweredPoll from '../components/AnsweredPoll'
 
 class ViewPoll extends Component {
   render() {
+    let vote,
+      whichPoll = null
     if (this.props.question !== null && this.props.authedUser) { // load the question object
-      let pollWithAnswerAndNot
-
-      const { question, color, authedUser } = this.props
-      const id = this.props.match.params.id
-      const arrayVotes = [...question.optionTwo.votes, question.optionOne.votes]
-      const vote = arrayVotes.some(e => e === authedUser)
+      const {
+        question, authedUser,
+      } = this.props
+      const arrayVotes = [...question.optionOne.votes, ...question.optionTwo.votes]
+      // console.log(question.optionOne.votes)
+      // console.log(question.optionTwo.votes)
+      // console.log([...arrayVotes])
+      vote = arrayVotes.some(e => e === authedUser)
+      // console.log(vote)
       if (vote) {
         // console.log('Answered')
-        pollWithAnswerAndNot = <AnsweredPoll />
+        whichPoll = <AnsweredPoll question={question} />
       } else {
         // console.log('Unanswered')
-        pollWithAnswerAndNot = <UnAnsweredPoll />
+        whichPoll = <UnAnsweredPoll question={question} />
       }
     }
 
     return (
-      <div className="ViewPoll">
-        ViewPoll
+      <div
+        className="ViewPoll d-flex justify-content-center align-items-center"
+        style={{
+        height: '82vh',
+}}
+      >
+        {whichPoll}
       </div>
     )
   }
@@ -38,6 +48,7 @@ function mapStateToProps({
     authedUser,
     color: template.color,
     question,
+    users,
   }
 }
 export default withRouter(connect(mapStateToProps)(ViewPoll))
