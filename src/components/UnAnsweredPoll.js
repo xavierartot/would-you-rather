@@ -5,6 +5,8 @@ import { MdPlaylistAddCheck } from 'react-icons/md'
 import { formatDate } from '../utils/helper'
 import { RadioGroup, RadioButton } from 'react-radio-buttons'
 import { handleChooseQuestion } from '../actions/choose'
+import { addAnswerPoll } from '../actions/users'
+
 
 class UnAnsweredPoll extends Component {
   onChange = (value) => {
@@ -14,15 +16,8 @@ class UnAnsweredPoll extends Component {
 
     // dispatch the choice in question reducer
     dispatch(handleChooseQuestion(question.id, authedUser, value))
-
-    // TODO
-    // dispatch the answer in users
-    // answers: {
-    // id: value,
-    // '6ni6ok3ym7mf1p33lnez': 'optionOne',
-    // am8ehyc8byjqgar0jgpub9: 'optionTwo',
-    // loxhs1bqm25b708cmbf3g: 'optionTwo',
-    // },
+    // console.log(question.id, value)
+    dispatch(addAnswerPoll(authedUser, value, question.id))
   }
   render() {
     const {

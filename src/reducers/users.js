@@ -1,4 +1,5 @@
 import { RECEIVES_USERS } from '../actions/users'
+import { ADD_ANSWER_POLL } from '../actions/users'
 
 export function users(state = {}, action) {
   switch (action.type) {
@@ -6,6 +7,20 @@ export function users(state = {}, action) {
       return {
         ...state,
         ...action.users, // merge users
+      }
+    case ADD_ANSWER_POLL:
+      const { authedUser, answer, idQuestion } = action
+      // console.log(idQuestion, authedUser, answer, state[authedUser], state)
+      const user = state[authedUser]
+      return {
+        ...state,
+        [authedUser]: {
+          ...user,
+          answers: {
+            ...user.answers,
+            [idQuestion]: answer, // add the result here
+          },
+        },
       }
     default:
       return state

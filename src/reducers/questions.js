@@ -13,15 +13,9 @@ export default function questions(state = {}, action) {
         id, userId, value,
       } = action
       const question = state[id]
-      // console.log(question)
-      // console.log(id)
-      // console.log(question[value].votes)
-      // console.log(action, state)
-      // console.log(userId)
-      // console.log(state[id][value].votes)
       const q = question[value].votes.concat([userId])
       // console.log(q)
-      return {
+      const updateState = {
         ...state,
         [id]: {
           ...question, // spread l'object question
@@ -31,6 +25,9 @@ export default function questions(state = {}, action) {
           },
         },
       }
+      console.log(updateState)
+      state = updateState
+      return state
     default: return state
   }
 }

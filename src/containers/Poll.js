@@ -5,6 +5,9 @@ import UnAnsweredPoll from '../components/UnAnsweredPoll'
 import AnsweredPoll from '../components/AnsweredPoll'
 
 class ViewPoll extends Component {
+  componentDidMount() {
+
+  }
   render() {
     let vote,
       whichPoll = null
@@ -20,7 +23,7 @@ class ViewPoll extends Component {
         whichPoll = <UnAnsweredPoll question={question} />
       }
     }
-
+    // console.log(vote)
     return (
       <div
         className="ViewPoll d-flex justify-content-center align-items-center"
@@ -38,6 +41,7 @@ function mapStateToProps({
 }, { match }) {
   const { id } = match.params
   const question = questions[id] || null
+  // console.log(questions, users, id)
   return {
     authedUser,
     color: template.color,

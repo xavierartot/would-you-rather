@@ -12,9 +12,10 @@ export function choose(id, userId, value) {
 }
 export function handleChooseQuestion(id, userId, value) {
   return (dispatch, getState) => { // thunk pattern with redux-thunk
-    // optimistic update
+    // optimistic update, UI first
     dispatch(choose(id, userId, value))
-    // save in DB
+
+    // save in DB after UI
     return _saveQuestionAnswer({
       authedUser: userId,
       id,
@@ -22,9 +23,7 @@ export function handleChooseQuestion(id, userId, value) {
     })
       .catch((e) => {
         console.warn('Error toggle tweet', e)
-        // dispatch to back in time
-        // dispatch(toggleTweet(info)) // put back one more time to reset what it was initially
-        alert('The was an error liking the tweet. Try again')
+        alert('The was an error liking the question Try again')
       })
   }
 }

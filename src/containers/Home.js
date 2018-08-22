@@ -13,6 +13,9 @@ class Home extends Component {
     questionsUnAnswered: PropTypes.array,
     questionsAnswered: PropTypes.array,
   }
+  componentDidMount() {
+    // console.log(this.props.store.getState())
+  }
   render() {
     const {
       questionsUnAnswered, questionsAnswered, authedUser, color,
@@ -67,29 +70,25 @@ class Home extends Component {
 }
 
 function mapStateToProps({
-  authedUser, users, questions, template,
+  authedUser, users, questions, template, state,
 }) {
-  console.log(users)
+  // console.log(users, questions)
   let questionsAnswered = Object.values(users)
     .filter(e => e.id === authedUser)
     .map(e => e.answers)
-  console.log(questionsAnswered)
+  // console.log(questionsAnswered)
   let qa = { ...questionsAnswered[0] }
   qa = Object.keys(qa)// on recupere les id reponduent dans un tableau
   questionsAnswered = qa
-  console.log(questionsAnswered)
+  // console.log(questionsAnswered)
 
-  // on filtre les questions qui n'on pas ete repondu par l'auteur
-  // on prend les answers par ids et ont les filtres avec les question
   let questionsUnAnswered = questionsAnswered
-  // les questions sont filtrés par les réponses réponduent
   let q = { ...questions }// destructure les questions
   q = Object.keys(q)// ont récupuere toutes les ids et ont les mets dans un tableau
   // console.log(q, qa)
   const qr = pullAll(q, qa) // Lodash method, compare and  les reponses  avec les questionsAnswered
   questionsUnAnswered = qr
-  console.log(questionsUnAnswered)
-
+  // console.log(questionsUnAnswered)
   return {
     authedUser,
     questionsAnswered,
