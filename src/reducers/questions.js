@@ -24,10 +24,10 @@ export default function questions(state = {}, action) {
       return {
         ...state,
         [id]: {
-          ...question,
-          [value]: {
-            text: state[id][value].text,
-            votes: q,
+          ...question, // spread l'object question
+          [value]: {// update the value
+            text: state[id][value].text, // add the text again
+            votes: q, // add the new array
           },
         },
       }

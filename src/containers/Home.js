@@ -69,13 +69,15 @@ class Home extends Component {
 function mapStateToProps({
   authedUser, users, questions, template,
 }) {
+  console.log(users)
   let questionsAnswered = Object.values(users)
     .filter(e => e.id === authedUser)
     .map(e => e.answers)
+  console.log(questionsAnswered)
   let qa = { ...questionsAnswered[0] }
   qa = Object.keys(qa)// on recupere les id reponduent dans un tableau
   questionsAnswered = qa
-  // console.log(questionsAnswered)
+  console.log(questionsAnswered)
 
   // on filtre les questions qui n'on pas ete repondu par l'auteur
   // on prend les answers par ids et ont les filtres avec les question
@@ -86,7 +88,7 @@ function mapStateToProps({
   // console.log(q, qa)
   const qr = pullAll(q, qa) // Lodash method, compare and  les reponses  avec les questionsAnswered
   questionsUnAnswered = qr
-  // console.log(questionsUnAnswered)
+  console.log(questionsUnAnswered)
 
   return {
     authedUser,

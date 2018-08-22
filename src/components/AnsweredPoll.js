@@ -18,11 +18,11 @@ class AnsweredPoll extends Component {
     const {
       authedUser, users, question, color,
     } = this.props
-    console.log(question.optionOne.text)
-    console.log(question.optionTwo.text)
+    // console.log(question.optionOne.text)
+    // console.log(question.optionTwo.text)
     const voteOne = question.optionOne.votes.some(e => e === authedUser)
     const voteTwo = question.optionTwo.votes.some(e => e === authedUser)
-    console.log(voteOne, voteTwo)
+    // console.log(voteOne, voteTwo)
     return (
       <div className="AnsweredPoll" className="d-flex justify-content-center">
         <Card className="d-flex  flex-column">

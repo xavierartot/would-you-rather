@@ -4,22 +4,25 @@ import { connect } from 'react-redux'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 import { formatDate } from '../utils/helper'
 import { RadioGroup, RadioButton } from 'react-radio-buttons'
-import { choose } from '../actions/choose'
+import { handleChooseQuestion } from '../actions/choose'
 
 class UnAnsweredPoll extends Component {
   onChange = (value) => {
     const {
-      authedUser, question, users, color,
+      authedUser, question, users, color, dispatch,
     } = this.props
-    const optionTwoVotes = question.optionTwo.votes
-    if (value === 'optionOne') {
-      // dipatch the login id in optionOne.votes[]
-      // console.log(value, optionTwoVotes)
-      this.props.dispatch(choose(question.id, authedUser, value))
-    } else if (value === 'optionTwo') {
-      // dipatch the login id in optionTwo.votes[]
-      console.log(value, optionTwoVotes)
-    }
+
+    // dispatch the choice in question reducer
+    dispatch(handleChooseQuestion(question.id, authedUser, value))
+
+    // TODO
+    // dispatch the answer in users
+    // answers: {
+    // id: value,
+    // '6ni6ok3ym7mf1p33lnez': 'optionOne',
+    // am8ehyc8byjqgar0jgpub9: 'optionTwo',
+    // loxhs1bqm25b708cmbf3g: 'optionTwo',
+    // },
   }
   render() {
     const {
