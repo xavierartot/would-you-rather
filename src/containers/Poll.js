@@ -13,16 +13,10 @@ class ViewPoll extends Component {
         question, authedUser,
       } = this.props
       const arrayVotes = [...question.optionOne.votes, ...question.optionTwo.votes]
-      // console.log(question.optionOne.votes)
-      // console.log(question.optionTwo.votes)
-      // console.log([...arrayVotes])
       vote = arrayVotes.some(e => e === authedUser)
-      // console.log(vote)
       if (vote) {
-        // console.log('Answered')
         whichPoll = <AnsweredPoll question={question} />
       } else {
-        // console.log('Unanswered')
         whichPoll = <UnAnsweredPoll question={question} />
       }
     }

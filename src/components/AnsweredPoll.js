@@ -25,7 +25,7 @@ class AnsweredPoll extends Component {
     console.log(voteOne, voteTwo)
     return (
       <div className="AnsweredPoll" className="d-flex justify-content-center">
-        <Card className="d-flex  flex-column" >
+        <Card className="d-flex  flex-column">
           <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name}</CardHeader>
           <CardBody className="d-flex flex-row justify-content-between">
             <CardImg alt={users[authedUser].avatarURL} className="rounded mr-2" src={users[authedUser].avatarURL} style={{ height: '40%', width: '40%' }} top />

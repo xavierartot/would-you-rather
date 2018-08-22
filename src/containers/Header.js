@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { unAuthedUser } from '../actions/unAuthedUser'
+import { withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
 import {
   Collapse,
   Navbar,
@@ -33,6 +34,10 @@ class Header extends Component {
     const { dispatch } = this.props
     event.preventDefault()
     dispatch(unAuthedUser(null))// logout
+
+    console.log(this.props)
+    // todo: Redirect to parent Tweet.
+    this.props.history.push('/')
   }
   render() {
     const { user, color } = this.props
@@ -61,7 +66,7 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className={`text-${color}`} onClick={this.logout} to="/home">
+                <NavLink className={`text-${color}`} onClick={this.logout} to="/">
                   <Button className={`btn-${color}`}>logout</Button>
                 </NavLink>
               </NavItem>
@@ -91,4 +96,4 @@ function mapStateToProps({ authedUser, users, template }) {
     color: template.color,
   }
 }
-export default connect(mapStateToProps)(Header)
+export default withRouter(connect(mapStateToProps)(Header))
