@@ -9,12 +9,12 @@ export function receiveUsers(users) {
   }
 }
 
-export function addAnswerPoll(authedUser, answer, idQuestion) {
+export function addAnswerPoll(idQuestion, authedUser, answer) {
   return {
     type: ADD_ANSWER_POLL,
+    idQuestion,
     authedUser,
     answer,
-    idQuestion,
   }
 }
 

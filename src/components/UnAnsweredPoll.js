@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { formatDate } from '../utils/helper'
 import { RadioGroup, RadioButton } from 'react-radio-buttons'
 import { handleChooseQuestion } from '../actions/choose'
-import { addAnswerPoll } from '../actions/users'
+// import { addAnswerPoll } from '../actions/choose'
 
 
 class UnAnsweredPoll extends Component {
@@ -17,7 +17,6 @@ class UnAnsweredPoll extends Component {
     // dispatch the choice in question reducer
     dispatch(handleChooseQuestion(question.id, authedUser, value))
     // console.log(question.id, value)
-    dispatch(addAnswerPoll(authedUser, value, question.id))
   }
   render() {
     const {

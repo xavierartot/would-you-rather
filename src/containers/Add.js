@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { addPoll } from '../actions/addPoll'
 import { addQuestion } from '../actions/users'
 import { generateUID } from '../utils/_DATA'
@@ -7,29 +8,59 @@ import { generateUID } from '../utils/_DATA'
 
 class Add extends Component {
   state = {
-    optionTwo: 'x',
-    optionOne: 'a',
+    optionTwo: 'a',
+    optionOne: 'b',
+    redirectToHome: false,
+    emptyFieldOptionOne: false,
+    emptyFieldOptionTwo: false,
   }
   handleSubmit = (e) => { // submit button
     e.preventDefault()
     const { optionOne, optionTwo } = this.state
     const { authedUser, dispatch } = this.props
     const idGenerated = generateUID()// id generate
-    console.log(optionOne, optionTwo, authedUser, idGenerated)
-    dispatch(addPoll(authedUser, optionOne, optionTwo, idGenerated))
-    dispatch(addQuestion(authedUser, idGenerated))
-  }
-  handleOptionTwo = (event) => {
-    event.preventDefault()
-    console.log(event.target.value)
-    this.setState({ optionTwo: event.target.value })
+    if (optionOne && optionTwo) {
+      dispatch(addPoll(authedUser, optionOne, optionTwo, idGenerated))
+      dispatch(addQuestion(authedUser, idGenerated))
+      this.setState(() => ({
+        redirectToHome: true, // new tweet is by itslef or using in Dashboard
+      }))
+    } else {
+      this.setState(() => ({
+        redirectToHome: false, // new tweet is by itslef or using in Dashboard
+      }))
+      console.error('error: empty fields')
+    }
   }
   handleOptionOne = (event) => {
-    event.preventDefault()
-    console.log(event.target.value)
-    this.setState({ optionOne: event.target.value })
+    const value = event.target.value
+    // console.log(value)
+    if (value === '') {
+      this.setState({ optionOne: value })
+      return this.setState({ emptyFieldOptionOne: true })
+    }
+    this.setState({
+      optionOne: value,
+      emptyFieldOptionOne: false,
+    })
+  }
+  handleOptionTwo = (event) => {
+    const value = event.target.value
+    // console.log(value)
+    if (value === '') {
+      this.setState({ optionTwo: value })
+      return this.setState({ emptyFieldOptionTwo: true })
+    }
+    this.setState({
+      optionTwo: value,
+      emptyFieldOptionTwo: false,
+    })
   }
   render() {
+    const { color } = this.props
+    if (this.state.redirectToHome) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="Add">
         <h3 className="center">Would You Rather</h3>
@@ -39,33 +70,43 @@ class Add extends Component {
             <input
               aria-describedby="OptionOne"
               className="form-control"
-              id="OptionOne"
+              id="optionOne"
               onChange={this.handleOptionOne}
               placeholder="Option One"
               type="text"
               value={this.state.optionOne}
             />
+            { this.state.emptyFieldOptionOne && (<small className="form-text text-danger" id="OptionOne">
+            the field can't be empty
+            </small>)
+            }
           </div>
           <div className="form-group">
-            <label htmlFor="OptionTwo">Option Two</label>
+            <label htmlFor="optionTwo">Option Two</label>
             <input
+              aria-describedby="OptionTwo"
               className="form-control"
-              id="OptionTwo"
+              id="optionTwo"
               onChange={this.handleOptionTwo}
               placeholder="Option Two"
               type="text"
               value={this.state.optionTwo}
             />
+            { this.state.emptyFieldOptionTwo && (<small className="form-text text-danger" id="OptionTwo">
+            the field can't be empty
+            </small>)
+            }
           </div>
-          <button className="btn btn-darked" type="submit">Submit</button>
+          <button className={`btn btn-${color}`} type="submit">Submit</button>
         </form>
       </div>
     )
   }
 }
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, template }) {
   return {
     authedUser,
+    color: template.color,
   }
 }
 export default connect(mapStateToProps)(Add)

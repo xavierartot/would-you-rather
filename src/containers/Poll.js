@@ -5,9 +5,6 @@ import UnAnsweredPoll from '../components/UnAnsweredPoll'
 import AnsweredPoll from '../components/AnsweredPoll'
 
 class ViewPoll extends Component {
-  componentDidMount() {
-
-  }
   render() {
     let vote,
       whichPoll = null
@@ -28,8 +25,8 @@ class ViewPoll extends Component {
       <div
         className="ViewPoll d-flex justify-content-center align-items-center"
         style={{
-        height: '82vh',
-}}
+          height: '82vh',
+        }}
       >
         {whichPoll}
       </div>

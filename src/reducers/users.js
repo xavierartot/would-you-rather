@@ -11,7 +11,7 @@ export function users(state = {}, action) {
       }
     case ADD_ANSWER_POLL:
       const { authedUser, answer, idQuestion } = action
-      // console.log(idQuestion, authedUser, answer, state[authedUser], state)
+      console.log(idQuestion, authedUser, answer, state[authedUser], state)
       const user = state[authedUser]
       return {
         ...state,

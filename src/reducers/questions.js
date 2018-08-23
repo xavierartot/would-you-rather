@@ -33,6 +33,7 @@ export default function questions(state = {}, action) {
       const {
         author, textOptionOne, textOptionTwo, idGenerate,
       } = action
+      console.log(author, textOptionOne, textOptionTwo, idGenerate)
       return {
         ...state,
         [idGenerate]: {
