@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Card, CardImg, CardText, CardBody, CardHeader } from 'reactstrap'
+// import { Button, Card, CardImg, CardText, CardBody, CardHeader } from 'reactstrap'
 import { connect } from 'react-redux'
-import { MdPlaylistAddCheck } from 'react-icons/md'
+// import { MdPlaylistAddCheck } from 'react-icons/md'
 import { formatDate } from '../utils/helper'
 import { RadioGroup, RadioButton } from 'react-radio-buttons'
 import { handleChooseQuestion } from '../actions/choose'
@@ -11,7 +11,7 @@ import { addAnswerPoll } from '../actions/users'
 class UnAnsweredPoll extends Component {
   onChange = (value) => {
     const {
-      authedUser, question, users, color, dispatch,
+      authedUser, question, dispatch,
     } = this.props
 
     // dispatch the choice in question reducer
@@ -21,7 +21,7 @@ class UnAnsweredPoll extends Component {
   }
   render() {
     const {
-      authedUser, question, users, color,
+      authedUser, question, users,
     } = this.props
     // const id = question[id]
     const user = users[authedUser]

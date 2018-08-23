@@ -1,5 +1,6 @@
 import { RECEIVES_QUESTIONS } from '../actions/questions'
 import { CHOOSE_QUESTION } from '../actions/choose'
+import { ADD_POLL } from '../actions/addPoll'
 
 export default function questions(state = {}, action) {
   switch (action.type) {
@@ -25,9 +26,41 @@ export default function questions(state = {}, action) {
           },
         },
       }
-      console.log(updateState)
+      // console.log(updateState)
       state = updateState
       return state
+    case ADD_POLL:
+      const {
+        author, textOptionOne, textOptionTwo, idGenerate,
+      } = action
+      return {
+        ...state,
+        [idGenerate]: {
+          id: idGenerate,
+          author,
+          timestamp: Date.now(),
+          optionOne: {
+            votes: [],
+            text: textOptionOne,
+          },
+          optionTwo: {
+            votes: [],
+            text: textOptionTwo,
+          },
+        },
+      }
+      // id: 'xj352vofupe1dqz9emx13r',
+      // author: 'johndoe',
+      // timestamp: 1493579767190,
+      // optionOne: {
+      // votes: ['johndoe'],
+      // text: 'write JavaScript',
+      // },
+      // optionTwo: {
+      // votes: ['tylermcginnis'],
+      // text: 'write Swift',
+      // },
+      // },
     default: return state
   }
 }
