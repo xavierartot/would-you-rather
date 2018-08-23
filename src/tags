@@ -10,31 +10,31 @@ ADD_ANSWER_POLL	actions/users.js	/^export const ADD_ANSWER_POLL = 'ADD_ANSWER_PO
 ADD_POLL	actions/addPoll.js	/^export const ADD_POLL = 'ADD_POLL'$/;"	n
 ADD_QUESTION	actions/users.js	/^export const ADD_QUESTION = 'ADD_QUESTION'$/;"	n
 Add	containers/Add.js	/^class Add extends Component {$/;"	c
-AnsweredPoll	components/AnsweredPoll.js	/^class AnsweredPoll extends Component {$/;"	c
+AnsweredPoll	containers/AnsweredPoll.js	/^class AnsweredPoll extends Component {$/;"	c
 App	containers/App.js	/^class App extends Component {$/;"	c
 CHANGE_TEMPLATE	actions/template.js	/^export const CHANGE_TEMPLATE = 'CHANGE_TEMPLATE'$/;"	n
 CHOOSE_QUESTION	actions/choose.js	/^export const CHOOSE_QUESTION = 'CHOOSE_QUESTION '$/;"	n
-Change	components/UnAnsweredPoll.js	/^        <RadioGroup horizontal onChange={this.onChange}>$/;"	c
-Change	components/UnAnsweredPoll.js	/^  onChange = (value) => {$/;"	c
 Change	components/UsersFormSelect.js	/^        <Input onChange={this.handleChange} type="select">$/;"	c
 Change	components/UsersFormSelect.js	/^  handleChange= (event) => {$/;"	c
 Change	containers/Add.js	/^              onChange={this.handleOptionOne}$/;"	c
 Change	containers/Add.js	/^              onChange={this.handleOptionTwo}$/;"	c
+Change	containers/UnAnsweredPoll.js	/^        <RadioGroup horizontal onChange={this.onChange}>$/;"	c
+Change	containers/UnAnsweredPoll.js	/^  onChange = (value) => {$/;"	c
 Click	containers/Header.js	/^          <NavbarToggler onClick={this.toggle} \/>$/;"	c
-Created	components/AnsweredPoll.js	/^          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name}<\/CardHeader>$/;"	c
-Created	components/AnsweredPoll.js	/^          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name}<\/CardHeader>$/;"	o
+Created	containers/AnsweredPoll.js	/^          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name}<\/CardHeader>$/;"	c
+Created	containers/AnsweredPoll.js	/^          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name}<\/CardHeader>$/;"	o
 DisplayQuestions	containers/DisplayQuestions.js	/^class DisplayQuestions extends Component {$/;"	c
 Generated	containers/Add.js	/^    const idGenerated = generateUID()\/\/ id generate$/;"	c
 Header	containers/Header.js	/^class Header extends Component {$/;"	c
 Home	containers/Home.js	/^class Home extends Component {$/;"	c
 LeaderBoard	containers/LeaderBoard.js	/^class LeaderBoard extends Component {$/;"	c
 ModalExample	containers/Modal.js	/^class ModalExample extends React.Component {$/;"	c
-Name	components/AnsweredPoll.js	/^                  ? <Button className={`btn btn-outline-${color}`} style={{ fontSize: '2rem' }}>{question.optionOne.text}<\/Button>$/;"	c
-Name	components/AnsweredPoll.js	/^                  ? <Button className={`btn btn-outline-${color}`} style={{ fontSize: '2rem' }}>{question.optionTwo.text}<\/Button>$/;"	c
-Name	components/AnsweredPoll.js	/^                <CardText className={`text-${color}`} style={{ fontSize: '2rem' }} >$/;"	c
-Name	components/AnsweredPoll.js	/^                <CardText className={`text-${color}`} style={{ fontSize: '2rem' }}>$/;"	c
-Name	components/AnsweredPoll.js	/^                <MdPlaylistAddCheck className={`text-${color}`} style={{ fontSize: '6rem' }} \/>$/;"	c
 Name	containers/Add.js	/^          <button className={`btn btn-${color}`} type="submit">Submit<\/button>$/;"	c
+Name	containers/AnsweredPoll.js	/^                  ? <Button className={`btn btn-outline-${color}`} style={{ fontSize: '2rem' }}>{question.optionOne.text}<\/Button>$/;"	c
+Name	containers/AnsweredPoll.js	/^                  ? <Button className={`btn btn-outline-${color}`} style={{ fontSize: '2rem' }}>{question.optionTwo.text}<\/Button>$/;"	c
+Name	containers/AnsweredPoll.js	/^                <CardText className={`text-${color}`} style={{ fontSize: '2rem' }} >$/;"	c
+Name	containers/AnsweredPoll.js	/^                <CardText className={`text-${color}`} style={{ fontSize: '2rem' }}>$/;"	c
+Name	containers/AnsweredPoll.js	/^                <MdPlaylistAddCheck className={`text-${color}`} style={{ fontSize: '6rem' }} \/>$/;"	c
 Name	containers/DisplayQuestions.js	/^                <button className={`btn btn-outline-${color}`}>$/;"	c
 Name	containers/DisplayQuestions.js	/^            <MdViewList className={`text-${color} plus-icons `} \/>$/;"	c
 Name	containers/Header.js	/^                  <Button className={`btn-${color}`}>logout<\/Button>$/;"	c
@@ -57,8 +57,8 @@ Questions	containers/Home.js	/^                  idQuestions={item}$/;"	c
 RECEIVES_QUESTIONS	actions/questions.js	/^export const RECEIVES_QUESTIONS = 'RECEIVES_QUESTIONS'$/;"	n
 RECEIVES_USERS	actions/users.js	/^export const RECEIVES_USERS = 'RECEIVE_USERS'$/;"	n
 SET_AUTHED_USER	actions/authedUser.js	/^export const SET_AUTHED_USER = 'SET_AUTHED_USER'$/;"	n
-Size	components/UnAnsweredPoll.js	/^          <RadioButton iconSize={20} value="optionOne">$/;"	c
-Size	components/UnAnsweredPoll.js	/^          <RadioButton iconSize={20} value="optionTwo">$/;"	c
+Size	containers/UnAnsweredPoll.js	/^          <RadioButton iconSize={20} value="optionOne">$/;"	c
+Size	containers/UnAnsweredPoll.js	/^          <RadioButton iconSize={20} value="optionTwo">$/;"	c
 State	reducers/questions.js	/^      const updateState = {$/;"	c
 Submit	containers/Add.js	/^        <form onSubmit={this.handleSubmit}>$/;"	c
 Submit	containers/Add.js	/^  handleSubmit = (e) => { \/\/ submit button$/;"	c
@@ -67,7 +67,7 @@ Two	reducers/questions.js	/^      \/\/ optionTwo: {$/;"	c
 Two	utils/_DATA.js	/^    optionTwo: {$/;"	c
 Types	containers/Home.js	/^  static propTypes = {$/;"	c
 UN_AUTHED_USER	actions/unAuthedUser.js	/^export const UN_AUTHED_USER = 'UN_AUTHED_USER'$/;"	n
-UnAnsweredPoll	components/UnAnsweredPoll.js	/^class UnAnsweredPoll extends Component {$/;"	c
+UnAnsweredPoll	containers/UnAnsweredPoll.js	/^class UnAnsweredPoll extends Component {$/;"	c
 User	containers/Modal.js	/^  loginUser = (event) => {$/;"	c
 Users	components/Users.js	/^const Users = ({ users }) => ($/;"	c
 UsersFormSelect	components/UsersFormSelect.js	/^class UsersFormSelect extends Component {$/;"	c
@@ -75,8 +75,8 @@ ViewPoll	containers/Poll.js	/^class ViewPoll extends Component {$/;"	c
 _getQuestions	utils/_DATA.js	/^export function _getQuestions() {$/;"	f
 _getUsers	utils/_DATA.js	/^export function _getUsers() {$/;"	f
 _saveQuestion	utils/_DATA.js	/^export function _saveQuestion(question) {$/;"	f
-_saveQuestionAnswer	utils/_DATA.js	/^export function _saveQuestionAnswer({ authedUser, id, answer }) {$/;"	f
-addAnswerPoll	actions/users.js	/^export function addAnswerPoll(authedUser, answer, idQuestion) {$/;"	f
+_saveQuestionAnswer	utils/_DATA.js	/^export function _saveQuestionAnswer({ authedUser, qid, answer }) {$/;"	f
+addAnswerPoll	actions/users.js	/^export function addAnswerPoll(idQuestion, authedUser, answer) {$/;"	f
 addPoll	actions/addPoll.js	/^export function addPoll(author, textOptionOne, textOptionTwo, idGenerate) {$/;"	f
 addQuestion	actions/users.js	/^export function addQuestion(authedUser, idGenerated) {$/;"	f
 am8ehyc8byjqgar0jgpub9	utils/_DATA.js	/^  am8ehyc8byjqgar0jgpub9: {$/;"	o
@@ -87,7 +87,7 @@ as	containers/Header.js	/^                  <PopoverHeader>login as :{id}<\/Popo
 authedUser	reducers/authedUser.js	/^export default function authedUser(state = null, action) {$/;"	f
 by	containers/DisplayQuestions.js	/^          <CardSubtitle className="d-flex align-items-center">Create by: {user.name}<\/CardSubtitle>$/;"	o
 changeTemplate	actions/template.js	/^export function changeTemplate(color) {$/;"	f
-choose	actions/choose.js	/^export function choose(id, userId, value) {$/;"	f
+chooseQuestion	actions/choose.js	/^export function chooseQuestion(id, userId, value) {$/;"	f
 componentDidMount	containers/App.js	/^  componentDidMount() {$/;"	f
 componentDidMount	containers/Home.js	/^  componentDidMount() {$/;"	f
 for	utils/template.js	/^  for (let i = 0, len = arrayColors.length; i < len; i++) {$/;"	f
@@ -95,6 +95,7 @@ formatDate	utils/helper.js	/^export function formatDate(timestamp) {$/;"	f
 formatQuestion	utils/_DATA.js	/^function formatQuestion({ optionOneText, optionTwoText, author }) {$/;"	f
 generateUID	utils/_DATA.js	/^export function generateUID() {$/;"	f
 getInitialData	utils/_DATA.js	/^export function getInitialData() {$/;"	f
+handleAddPoll	actions/shared.js	/^export function handleAddPoll(id, userId, value) {$/;"	f
 handleChooseQuestion	actions/choose.js	/^export function handleChooseQuestion(id, userId, value) {$/;"	f
 handleInitialData	actions/shared.js	/^export function handleInitialData() { \/\/ middleware thunk$/;"	f
 handleTemplate	actions/template.js	/^export function handleTemplate(color) {$/;"	f
@@ -109,11 +110,11 @@ if	containers/Poll.js	/^    if (this.props.question !== null && this.props.authe
 if	utils/template.js	/^    if (darked === 'darked') {$/;"	f
 johndoe	utils/_DATA.js	/^  johndoe: {$/;"	o
 loxhs1bqm25b708cmbf3g	utils/_DATA.js	/^  loxhs1bqm25b708cmbf3g: {$/;"	o
-mapStateToProps	components/AnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }) {$/;"	f
-mapStateToProps	components/UnAnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }) {$/;"	f
 mapStateToProps	containers/Add.js	/^function mapStateToProps({ authedUser, template }) {$/;"	f
+mapStateToProps	containers/AnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }) {$/;"	f
 mapStateToProps	containers/App.js	/^function mapStateToProps({ template }, props) {$/;"	f
 mapStateToProps	containers/Header.js	/^function mapStateToProps({ authedUser, users, template }) {$/;"	f
+mapStateToProps	containers/UnAnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }) {$/;"	f
 mapToStateProps	components/UsersFormSelect.js	/^function mapToStateProps({ users }) {$/;"	f
 mapToStateProps	containers/Modal.js	/^function mapToStateProps({ authedUsers }) {$/;"	f
 name	containers/Header.js	/^                    <p className="mb-0">name: {name}<\/p>$/;"	o
@@ -126,10 +127,9 @@ optionTwo	utils/_DATA.js	/^    optionTwo: {$/;"	o
 questions	reducers/questions.js	/^export default function questions(state = {}, action) {$/;"	f
 receiveQuestions	actions/questions.js	/^export function receiveQuestions(questions) {$/;"	f
 receiveUsers	actions/users.js	/^export function receiveUsers(users) {$/;"	f
-render	components/AnsweredPoll.js	/^  render() {$/;"	f
-render	components/UnAnsweredPoll.js	/^  render() {$/;"	f
 render	components/UsersFormSelect.js	/^  render() {$/;"	f
 render	containers/Add.js	/^  render() {$/;"	f
+render	containers/AnsweredPoll.js	/^  render() {$/;"	f
 render	containers/App.js	/^  render() {$/;"	f
 render	containers/DisplayQuestions.js	/^  render() {$/;"	f
 render	containers/Header.js	/^  render() {$/;"	f
@@ -137,6 +137,7 @@ render	containers/Home.js	/^  render() {$/;"	f
 render	containers/LeaderBoard.js	/^  render() {$/;"	f
 render	containers/Modal.js	/^  render() {$/;"	f
 render	containers/Poll.js	/^  render() {$/;"	f
+render	containers/UnAnsweredPoll.js	/^  render() {$/;"	f
 sarahedo	utils/_DATA.js	/^  sarahedo: {$/;"	o
 setAuthedUser	actions/authedUser.js	/^export function setAuthedUser(id) {$/;"	f
 switch	reducers/authedUser.js	/^  switch (action.type) {$/;"	f

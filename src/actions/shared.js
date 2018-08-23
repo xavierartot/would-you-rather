@@ -2,6 +2,9 @@
 import { receiveQuestions } from '../actions/questions'
 import { receiveUsers } from '../actions/users'
 import { setAuthedUser } from '../actions/authedUser'
+import { addQuestion } from '../actions/users'
+import { addPoll } from '../actions/addPoll'
+import { _saveQuestion } from '../utils/_DATA'
 
 
 import { getInitialData } from '../utils/_DATA'
@@ -19,6 +22,22 @@ export function handleInitialData() { // middleware thunk
         dispatch(setAuthedUser('sarahedo')) // null by default
         dispatch(receiveQuestions(questions))
         // dispatch(hideLoading()) // hide the loading bar
+      })
+  }
+}
+
+export function handleAddPoll(authedUser, optionOne, optionTwo) {
+  const question = {
+    author: authedUser,
+    optionOne,
+    optionTwo,
+  }
+  return (dispatch, getState) => { // thunk pattern with redux-thunk
+    _saveQuestion(question)
+      .then((questions, users) => {
+        // console.log(questions)
+        dispatch(addPoll(authedUser, optionOne, optionTwo, questions.id))// question reducer
+        dispatch(addQuestion(authedUser, questions.id))// users reducer
       })
   }
 }

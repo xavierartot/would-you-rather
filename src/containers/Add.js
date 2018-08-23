@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { addPoll } from '../actions/addPoll'
-import { addQuestion } from '../actions/users'
-import { generateUID } from '../utils/_DATA'
+import { handleAddPoll } from '../actions/shared'
+// import { generateUID } from '../utils/_DATA'
 
 
 class Add extends Component {
@@ -18,10 +17,9 @@ class Add extends Component {
     e.preventDefault()
     const { optionOne, optionTwo } = this.state
     const { authedUser, dispatch } = this.props
-    const idGenerated = generateUID()// id generate
+    // const idGenerated = generateUID()// id generate by the DB
     if (optionOne && optionTwo) {
-      dispatch(addPoll(authedUser, optionOne, optionTwo, idGenerated))
-      dispatch(addQuestion(authedUser, idGenerated))
+      dispatch(handleAddPoll(authedUser, optionOne, optionTwo))
       this.setState(() => ({
         redirectToHome: true, // new tweet is by itslef or using in Dashboard
       }))

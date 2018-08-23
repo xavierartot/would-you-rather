@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
-import UnAnsweredPoll from '../components/UnAnsweredPoll'
-import AnsweredPoll from '../components/AnsweredPoll'
+import UnAnsweredPoll from '../containers/UnAnsweredPoll'
+import AnsweredPoll from '../containers/AnsweredPoll'
 
 class ViewPoll extends Component {
   render() {

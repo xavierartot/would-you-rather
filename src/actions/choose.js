@@ -13,15 +13,15 @@ export function chooseQuestion(id, userId, value) {
 }
 export function handleChooseQuestion(id, userId, value) {
   return (dispatch, getState) => { // thunk pattern with redux-thunk
-    // optimistic update, UI first
     dispatch(chooseQuestion(id, userId, value))// question reducer
     dispatch(addAnswerPoll(id, userId, value))// users reducer
 
     // save in DB after UI
+    // 👇
     return _saveQuestionAnswer({
-      userId,
-      id,
-      value,
+      authedUser: userId,
+      qid: id,
+      answer: value,
     })
       .catch((e) => {
         console.warn('Error toggle question', e)
