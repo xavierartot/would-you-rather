@@ -79,7 +79,6 @@ class UnAnsweredPoll extends Component {
       <div>{formatDate(question.timestamp)}</div>
     </CardHeader>
           <CardBody>
-
             <CardTitle className="mb-0 card-title h3 mb-3">
               Would You Rather
             </CardTitle>

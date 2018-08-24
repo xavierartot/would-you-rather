@@ -61,6 +61,7 @@ function mapStateToProps({ users, authedUser, template }) {
     users,
     authedUser,
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(AnsweredPoll)

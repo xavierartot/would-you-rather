@@ -40,38 +40,38 @@ class Header extends Component {
     this.props.history.push('/')
   }
   render() {
-    const { user, color } = this.props
+    const { user, color ,background } = this.props
     const { name, avatarURL, id } = user
     // console.log(user)
     return (
       <div className="Header mb-3">
         <Navbar color="light" expand="md" light>
-          <NavbarBrand href="/">Game: Would You Rather</NavbarBrand>
+          <NavbarBrand className={`text-${background}`} href="/">Game</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="d-flex align-items-center">
-                <NavLink className={`text-${color}`} tag={Link} to="/">
+                <NavLink className={`text-${background}`} tag={Link} to="/">
                   Home
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex align-items-center">
-                <NavLink className={`text-${color}`} tag={Link} to="/leaderboard">
+                <NavLink className={`text-${background}`} tag={Link} to="/leaderboard">
                   Leader Board
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex align-items-center">
-                <NavLink className={`text-${color}`} tag={Link} to="/add">
+                <NavLink className={`text-${background}`} tag={Link} to="/add">
                   New WYR
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className={`text-${color}`} onClick={this.logout} to="/">
-                  <Button className={`btn-${color}`}>logout</Button>
+                <NavLink className={`text-${background}`} onClick={this.logout} to="/">
+                  <Button className={`btn-${background}`}>logout</Button>
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex align-items-center">
-                <NavLink className={`text-${color}`} id="Popover1" onClick={this.togglePopHover}> name:
+                <NavLink className={`text-${background}`} id="Popover1" onClick={this.togglePopHover}> name:
                   <span className="font-weight-bold"> {user.name}</span>
                 </NavLink>
                 <Popover isOpen={this.state.popoverOpen} placement="bottom" target="Popover1" toggle={this.togglePopHover}>
@@ -91,9 +91,11 @@ class Header extends Component {
 }
 function mapStateToProps({ authedUser, users, template }) {
   const user = { ...users[authedUser] }
+  console.log(template.color )
   return {
     user,
     color: template.color,
+    background: template.background,
   }
 }
 export default withRouter(connect(mapStateToProps)(Header))
