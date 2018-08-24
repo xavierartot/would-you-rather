@@ -18,7 +18,7 @@ class App extends Component {
   }
   render() {
     if (this.props.color === undefined) {
-      this.props.dispatch(handleTemplate(templateBootstrap('darked')))
+      this.props.dispatch(handleTemplate(templateBootstrap()))
     }
     return (
       <Router>
@@ -39,6 +39,7 @@ class App extends Component {
 function mapStateToProps({ template }, props) {
   return {
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(App)

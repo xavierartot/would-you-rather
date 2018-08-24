@@ -20,7 +20,7 @@ class UnAnsweredPoll extends Component {
   }
   render() {
     const {
-      authedUser, question, users,
+      authedUser, question, users, color, background,
     } = this.props
     // const id = question[id]
     const user = users[authedUser]
@@ -29,15 +29,17 @@ class UnAnsweredPoll extends Component {
     const optionTwoText = question.optionTwo.text
     return (
       <div className="UnAnsweredPoll">
-        <div>{user.avatarURL}</div>
+        <div>
+          <img alt={user.id} className="rounded-circle mr-2" src={user.avatarURL} style={{ height: '40px', width: '40px' }} />
+        </div>
         <div>{user.name}</div>
         <div>{formatDate(question.timestamp)}</div>
         <h1>Would You Rather</h1>
-        <RadioGroup horizontal onChange={this.onChange}>
-          <RadioButton iconSize={20} value="optionOne">
+        <RadioGroup buttonStyling="primary" horizontal onChange={this.onChange}>
+          <RadioButton iconSize={20} pointStyling="test2"  value="optionOne">
             {optionOneText}
           </RadioButton>
-          <RadioButton iconSize={20} value="optionTwo">
+          <RadioButton buttonStyling="test" iconSize={20} value="optionTwo">
             { optionTwoText }
           </RadioButton>
         </RadioGroup>
@@ -50,6 +52,7 @@ function mapStateToProps({ users, authedUser, template }) {
     users,
     authedUser,
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(UnAnsweredPoll)

@@ -18,7 +18,7 @@ class Home extends Component {
   }
   render() {
     const {
-      questionsUnAnswered, questionsAnswered, authedUser, color,
+      questionsUnAnswered, questionsAnswered, authedUser, color, background,
     } = this.props
     if (this.props.authedUser === null) {
       return <Modal buttonLabel="open" />
@@ -31,7 +31,7 @@ class Home extends Component {
             <Card className="mb-3 shadow rounded">
               <CardBody>
                 <CardTitle className="mb-0">
-                  {authedUser } Answered  <Badge color={color}>{ questionsAnswered.length}</Badge> games
+                  {authedUser } Answered  <Badge className={`bg-${background}`} color={background}>{ questionsAnswered.length}</Badge> games
                 </CardTitle>
               </CardBody>
             </Card>
@@ -49,7 +49,7 @@ class Home extends Component {
             <Card className="mb-3">
               <CardBody>
                 <CardTitle className="mb-0">
-                  {authedUser } Unanswered  <Badge color={color}>{ questionsUnAnswered.length}</Badge> games
+                  {authedUser } Unanswered  <Badge color={background}>{ questionsUnAnswered.length}</Badge> games
                 </CardTitle>
               </CardBody>
             </Card>
@@ -94,6 +94,7 @@ function mapStateToProps({
     questionsAnswered,
     questionsUnAnswered,
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(Home)

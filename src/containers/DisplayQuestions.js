@@ -10,7 +10,9 @@ import { MdViewList } from 'react-icons/md'
 
 class DisplayQuestions extends Component {
   render() {
-    const { idQuestions, user, color } = this.props
+    const {
+      idQuestions, user, color, background,
+    } = this.props
 
     if (idQuestions === null) {
       return <p>This question doesn't exist</p>
@@ -27,7 +29,7 @@ class DisplayQuestions extends Component {
         <div className="card-text">
           <ListGroup>
             <ListGroupItem className="justify-content-between pl-2">
-              <Badge className="mr-2" color={color} pill>1</Badge>
+              <Badge className="mr-2" color={background} pill>1</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
                 <button className={`btn btn-outline-${color}`}>
                   {optionOne.text}
@@ -35,7 +37,7 @@ class DisplayQuestions extends Component {
               </Link>
             </ListGroupItem>
             <ListGroupItem className="justify-content-between pl-2">
-              <Badge className="mr-2" color={color} pill>2</Badge>
+              <Badge className="mr-2" color={background} pill>2</Badge>
               <Link to={`/Poll/${idQuestions.id}`}>
                 <button className={`btn btn-outline-${color}`}>
                   {optionTwo.text}
@@ -55,6 +57,7 @@ function mapStateToProps({
     idQuestions: questions[idQuestions] || null,
     user: users[authedUser],
     color: template.color,
+    background: template.background,
   }
 }
 export default withRouter(connect(mapStateToProps)(DisplayQuestions))

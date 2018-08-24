@@ -16,3 +16,10 @@ a {
 .plus-icons {
   font-size: 2em;
 }
+.table {
+      border-radius: 5px;
+    width: 70%;
+    margin: 0px auto;
+    float: none;
+    background: white;
+}
