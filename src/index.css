@@ -32,3 +32,6 @@ a {
 .primarytoto {
   background-color: pink;
 }
+.navbar-brand {
+  font-size: 2em;
+}

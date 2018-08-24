@@ -40,7 +40,7 @@ class Header extends Component {
     this.props.history.push('/')
   }
   render() {
-    const { user, color ,background } = this.props
+    const { user, background } = this.props
     const { name, avatarURL, id } = user
     // console.log(user)
     return (

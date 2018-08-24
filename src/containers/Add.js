@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { Card, CardBody, CardHeader } from 'reactstrap'
 import { handleAddPoll } from '../actions/shared'
 // import { generateUID } from '../utils/_DATA'
 
 
 class Add extends Component {
   state = {
-    optionTwo: 'a',
-    optionOne: 'b',
+    optionTwo: '',
+    optionOne: '',
     redirectToHome: false,
     emptyFieldOptionOne: false,
     emptyFieldOptionTwo: false,
@@ -60,43 +61,48 @@ class Add extends Component {
       return <Redirect to="/" />
     }
     return (
-      <div className="Add">
-        <h3 className="center">Would You Rather</h3>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="OptionOne">Option One</label>
-            <input
-              aria-describedby="OptionOne"
-              className="form-control"
-              id="optionOne"
-              onChange={this.handleOptionOne}
-              placeholder="Option One"
-              type="text"
-              value={this.state.optionOne}
-            />
-            { this.state.emptyFieldOptionOne && (<small className="form-text text-danger" id="OptionOne">
-            the field can't be empty
-            </small>)
-            }
-          </div>
-          <div className="form-group">
-            <label htmlFor="optionTwo">Option Two</label>
-            <input
-              aria-describedby="OptionTwo"
-              className="form-control"
-              id="optionTwo"
-              onChange={this.handleOptionTwo}
-              placeholder="Option Two"
-              type="text"
-              value={this.state.optionTwo}
-            />
-            { this.state.emptyFieldOptionTwo && (<small className="form-text text-danger" id="OptionTwo">
-            the field can't be empty
-            </small>)
-            }
-          </div>
-          <button className={`btn btn-${color}`} type="submit">Submit</button>
-        </form>
+      <div className="d-flex justify-content-center">
+        <Card className="d-flex flex-column">
+          <CardHeader><h3 className="center">Would You Rather</h3></CardHeader>
+          <CardBody className="d-flex flex-row justify-content-between">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="OptionOne">Option One</label>
+                <input
+                  aria-describedby="OptionOne"
+                  className="form-control"
+                  id="optionOne"
+                  onChange={this.handleOptionOne}
+                  placeholder="Option One"
+                  type="text"
+                  value={this.state.optionOne}
+                />
+                { this.state.emptyFieldOptionOne && (
+                  <small className="form-text text-danger" id="OptionOne">
+                    the field can't be empty
+                  </small>)
+                }
+              </div>
+              <div className="form-group">
+                <label htmlFor="optionTwo">Option Two</label>
+                <input
+                  aria-describedby="OptionTwo"
+                  className="form-control"
+                  id="optionTwo"
+                  onChange={this.handleOptionTwo}
+                  placeholder="Option Two"
+                  type="text"
+                  value={this.state.optionTwo}
+                />
+                { this.state.emptyFieldOptionTwo && (<small className="form-text text-danger" id="OptionTwo">
+                  the field can't be empty
+                </small>)
+                }
+              </div>
+              <button className={`btn btn-${color}`} type="submit">Submit</button>
+          </form></CardBody>
+        </Card>
+
       </div>
     )
   }

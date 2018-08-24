@@ -18,7 +18,7 @@ class Home extends Component {
   }
   render() {
     const {
-      questionsUnAnswered, questionsAnswered, authedUser, color, background,
+      questionsUnAnswered, questionsAnswered, authedUser, background,
     } = this.props
     if (this.props.authedUser === null) {
       return <Modal buttonLabel="open" />
