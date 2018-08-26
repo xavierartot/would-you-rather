@@ -56,16 +56,17 @@ class Add extends Component {
     })
   }
   render() {
-    const { color } = this.props
+    const { color, background  } = this.props
+    console.log( this.props )
     if (this.state.redirectToHome) {
       return <Redirect to="/" />
     }
     return (
       <div className="d-flex justify-content-center">
-        <Card className="d-flex flex-column">
+        <Card className="d-flex flex-column mb-3 shadow rounded" style={{width: '340px'}}>
           <CardHeader><h3 className="center">Would You Rather</h3></CardHeader>
           <CardBody className="d-flex flex-row justify-content-between">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} style={{ width: '100%'}}>
               <div className="form-group">
                 <label htmlFor="OptionOne">Option One</label>
                 <input
@@ -99,7 +100,7 @@ class Add extends Component {
                 </small>)
                 }
               </div>
-              <button className={`btn btn-${color}`} type="submit">Submit</button>
+              <button className={`btn btn-${background}`} type="submit">Submit</button>
           </form></CardBody>
         </Card>
 
@@ -111,6 +112,7 @@ function mapStateToProps({ authedUser, template }) {
   return {
     authedUser,
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(Add)

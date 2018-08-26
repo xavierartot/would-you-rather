@@ -17,6 +17,7 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
+    //login id === nulll in handleInitialData()
     if (this.props.color === undefined) {
       this.props.dispatch(handleTemplate(templateBootstrap()))
     }

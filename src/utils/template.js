@@ -15,9 +15,14 @@ export default function templateBootstrap(darked = '') {
   // randColor = objColor.map(item => randColor = arrayColors[random(0, arrayColors.length)])
 
   for (let i = 0, len = objColor.length; i < len; i++) {
-    return randColor = objColor[random(0, objColor.length)]
+    return randColor = objColor[random(0, arrayColors.length)]
   }
   console.log(randColor)
-
-  return [randColor.background, randColor.color]
+  randColor = [randColor.background, randColor.color]
+  console.log(randColor)
+  if (randColor === undefined) {
+    randColor = ['warning', 'text-dark']
+  }
+  console.log(randColor)
+  return randColor
 }

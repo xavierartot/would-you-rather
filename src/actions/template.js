@@ -1,10 +1,9 @@
 export const CHANGE_TEMPLATE = 'CHANGE_TEMPLATE'
 
-export function changeTemplate(color, textColor) {
+export function changeTemplate(color) {
   return {
     type: CHANGE_TEMPLATE,
     color,
-    textColor,
   }
 }
 export function handleTemplate(color) {

@@ -67,17 +67,15 @@ class UnAnsweredPoll extends Component {
     const optionTwoText = question.optionTwo.text
     return (
       <div className="UnAnsweredPoll">
-
-        <h1>ddd</h1>
-        <Card className="mb-3 shadow rounded">
-      <CardHeader>
-      <div className="d-flex justify-content-start mb-3">
-        <img alt={user.id} className="rounded-circle mr-3" src={user.avatarURL} style={{ height: '60px', width: '60px' }}
-        />
-      <span className="align-items-center d-flex">{user.name}</span>
-      </div>
-      <div>{formatDate(question.timestamp)}</div>
-    </CardHeader>
+        <Card className="mb-3 shadow rounded  d-flex flex-column">
+          <CardHeader>
+            <div className="d-flex justify-content-start mb-3">
+              <img alt={user.id} className="rounded-circle mr-3" src={user.avatarURL} style={{ height: '60px', width: '60px' }}
+              />
+              <span className="align-items-center d-flex">{user.name}</span>
+            </div>
+            <div>{formatDate(question.timestamp)}</div>
+          </CardHeader>
           <CardBody>
             <CardTitle className="mb-0 card-title h3 mb-3">
               Would You Rather

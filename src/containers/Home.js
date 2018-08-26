@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import Modal from '../containers/Modal'
 import pullAll from 'lodash/pullAll'
 import DisplayQuestions from './DisplayQuestions'
-import { Card, Row, Col, CardTitle, CardBody, Badge } from 'reactstrap'
+import {TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardBody, Badge, Row, Col} from 'reactstrap'
+import classnames from 'classnames';
 
 class Home extends Component {
   static propTypes = {
@@ -13,6 +14,17 @@ class Home extends Component {
     questionsUnAnswered: PropTypes.array,
     questionsAnswered: PropTypes.array,
   }
+    state = {
+      activeTab: '1'
+    };
+
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
   componentDidMount() {
     // console.log(this.props.store.getState())
   }
@@ -20,50 +32,76 @@ class Home extends Component {
     const {
       questionsUnAnswered, questionsAnswered, authedUser, background,
     } = this.props
-    if (this.props.authedUser === null) {
+    if (this.props.authedUser === null) { //user is not logged launch the modal
       return <Modal buttonLabel="open" />
     }
 
     return (
       <div className="Home">
-        <Row className="justify-content-md-center">
-          <Col className="col-md-auto mb-3" sm="6" xs="12">
-            <Card className="mb-3 shadow rounded">
-              <CardBody>
-                <CardTitle className="mb-0">
-                  {authedUser } Answered  <Badge className={`bg-${background}`} color={background}>{ questionsAnswered.length}</Badge> games
-                </CardTitle>
-              </CardBody>
-            </Card>
-            {questionsAnswered.map(item => (
-              <Card key={item} body className="mb-3">
+        <Nav tabs className="justify-content-center mb-3 ">
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => { this.toggle('1'); }}
+            >
+             Unanswered
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => { this.toggle('2'); }}
+            >
+              Answered
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab} className="">
+          <TabPane tabId="1">
+            <Row className="justify-content-center">
+              <Card className="mb-3 col-md-auto">
+                <CardBody>
+                  <CardTitle className="mb-0">
+                    {authedUser } Unanswered  <Badge color={background}>{ questionsUnAnswered.length}</Badge> games
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Row>
+            <Row className="justify-content-around flex-wrap d-flex justify-content-around">
+              {questionsUnAnswered.map(item => (
+              <Card key={item} body className="shadow rounded mb-3 col-sm-4 m-2">
                 <DisplayQuestions
                   idQuestions={item}
                   tag="div"
                 />
               </Card>
               ))
-            }
-          </Col>
-          <Col className="col-md-auto mb-3" sm="6" xs="12">
-            <Card className="mb-3">
-              <CardBody>
-                <CardTitle className="mb-0">
-                  {authedUser } Unanswered  <Badge color={background}>{ questionsUnAnswered.length}</Badge> games
-                </CardTitle>
-              </CardBody>
-            </Card>
-            {questionsUnAnswered.map(item => (
-              <Card key={item} body className="mb-3">
+              }
+            </Row>
+          </TabPane>
+          <TabPane tabId="2">
+            <Row className="justify-content-center">
+              <Card className="mb-3 col-md-auto">
+                <CardBody>
+                  <CardTitle className="mb-0">
+                    {authedUser } Answered  <Badge className={`bg-${background}`} color={background}>{ questionsAnswered.length}</Badge> games
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Row>
+            <Row className="justify-content-around flex-wrap d-flex justify-content-around">
+              {questionsAnswered.map(item => (
+              <Card key={item} body className="shadow rounded mb-3 col-sm-4 m-2">
                 <DisplayQuestions
                   idQuestions={item}
                   tag="div"
                 />
               </Card>
               ))
-            }
-          </Col>
-        </Row>
+              }
+            </Row>
+          </TabPane>
+        </TabContent>
       </div>
     )
   }
