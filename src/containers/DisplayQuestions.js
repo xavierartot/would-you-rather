@@ -5,15 +5,17 @@ import { ListGroup, ListGroupItem, Badge, CardSubtitle } from 'reactstrap'
 // import { IoMdAdd } from 'react-icons/io'
 // import { MdPlaylistAdd } from 'react-icons/md'
 import { MdViewList } from 'react-icons/md'
+import { formatDate } from '../utils/helper';
 
 // import { FaBeer } from 'react-icons/fa'
 
 class DisplayQuestions extends Component {
   render() {
     const {
-      idQuestions, user, color, background,
+      idQuestions, user, color, background, timestamp
     } = this.props
 
+    //console.log(idQuestions )
     if (idQuestions === null) {
       return <p>This question doesn't exist</p>
     }
@@ -22,6 +24,7 @@ class DisplayQuestions extends Component {
       <div>
         <div className="d-flex justify-content-between mb-3">
           <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle>
+          <CardSubtitle className="d-flex align-items-center">{formatDate(timestamp)}</CardSubtitle>
           <Link className="d-flex align-items-center" to={`/questions/${id}`}>
             <MdViewList className={`text-${color} plus-icons `} />
           </Link>
@@ -53,12 +56,18 @@ class DisplayQuestions extends Component {
 function mapStateToProps({
   questions, authedUser, users, template,
 }, { idQuestions }) {
-  console.log(idQuestions )
+
+  let time, temp
+  if (idQuestions !== null) {
+  temp = {...questions[idQuestions]}
+   time = temp.timestamp
+  }
   return {
     idQuestions: questions[idQuestions] || null,
     user: users[authedUser],
     color: template.color,
     background: template.background,
+    timestamp: time,
   }
 }
 export default withRouter(connect(mapStateToProps)(DisplayQuestions))

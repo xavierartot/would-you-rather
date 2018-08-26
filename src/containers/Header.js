@@ -91,7 +91,7 @@ class Header extends Component {
 }
 function mapStateToProps({ authedUser, users, template }) {
   const user = { ...users[authedUser] }
-  console.log(template.color )
+  //console.log(template.color )
   return {
     user,
     color: template.color,

@@ -56,7 +56,7 @@ class Add extends Component {
     })
   }
   render() {
-    const { color, background  } = this.props
+    const { background  } = this.props
     console.log( this.props )
     if (this.state.redirectToHome) {
       return <Redirect to="/" />
@@ -111,7 +111,6 @@ class Add extends Component {
 function mapStateToProps({ authedUser, template }) {
   return {
     authedUser,
-    color: template.color,
     background: template.background,
   }
 }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Modal from '../containers/Modal'
 import pullAll from 'lodash/pullAll'
 import DisplayQuestions from './DisplayQuestions'
-import {TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardBody, Badge, Row, Col} from 'reactstrap'
+import {TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardBody, Badge, Row} from 'reactstrap'
 import classnames from 'classnames';
 
 class Home extends Component {
@@ -110,26 +110,58 @@ class Home extends Component {
 function mapStateToProps({
   authedUser, users, questions, template, state,
 }) {
+
+  //console.log(questions )
+  //let sortQuestions = questions  !== undefined
+    //? Object.values(questions).sort((a,b) => b.timestamp - a.timestamp)
+  //:''
+  //console.log(sortQuestions)
+
   // console.log(users, questions)
-  let questionsAnswered = Object.values(users)
+  let tempQA = Object.values(users)
     .filter(e => e.id === authedUser)
     .map(e => e.answers)
-  // console.log(questionsAnswered)
-  let qa = { ...questionsAnswered[0] }
+   //console.log(tempQA)
+  let qa = { ...tempQA[0] }
   qa = Object.keys(qa)// on recupere les id reponduent dans un tableau
-  questionsAnswered = qa
-  // console.log(questionsAnswered)
+  tempQA = qa
+   //console.log(tempQA)
+  let objQuestionsAnswered = tempQA.map( (id) => {
+    return questions[id]
+  })
+  //console.log(objQuestionsAnswered )
+  let sortQuestionsAnswered = objQuestionsAnswered !== undefined
+    ? objQuestionsAnswered.sort((a,b) => b.timestamp - a.timestamp)
+  .map( (e,i) => {
+    return e !== undefined
+      ? e.id
+    :i
+  })
+  :''
+  //console.log(sortQuestionsAnswered )
 
-  let questionsUnAnswered = questionsAnswered
+  let questionsUnAnswered = sortQuestionsAnswered
   let q = { ...questions }// destructure les questions
-  q = Object.keys(q)// ont récupuere toutes les ids et ont les mets dans un tableau
-  // console.log(q, qa)
+  q = Object.keys(q)// q = all id
+  //console.log(q, qa)//qu = id answer
   const qr = pullAll(q, qa) // Lodash method, compare and  les reponses  avec les questionsAnswered
-  questionsUnAnswered = qr
-  // console.log(questionsUnAnswered)
+  //console.log(qr)
+
+  //sort the result
+  let tempQUA = qr.map( (id,i) => {
+   return questions !== questions[id]
+    ? questions[id]
+    :i
+  }).sort((a,b) => b.timestamp - a.timestamp)
+  .map( (e) => {
+    return e.id
+  })
+   //console.log(tempQUA )
+
+  questionsUnAnswered = tempQUA
   return {
     authedUser,
-    questionsAnswered,
+    questionsAnswered: sortQuestionsAnswered ,
     questionsUnAnswered,
     color: template.color,
     background: template.background,
