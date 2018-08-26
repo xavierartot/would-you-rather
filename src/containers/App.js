@@ -29,7 +29,7 @@ class App extends Component {
             <Route component={LeaderBoard} path="/leaderboard" />
             <Route component={Home} exact path="/" />
             <Route component={Add} path="/add" />
-            <Route component={Poll} path="/Poll/:id" />
+            <Route component={Poll} path="/questions/:id" />
           </div>
         </Fragment>
       </Router>

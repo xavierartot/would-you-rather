@@ -22,7 +22,7 @@ class DisplayQuestions extends Component {
       <div>
         <div className="d-flex justify-content-between mb-3">
           <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle>
-          <Link className="d-flex align-items-center" to={`/poll/${id}`}>
+          <Link className="d-flex align-items-center" to={`/questions/${id}`}>
             <MdViewList className={`text-${color} plus-icons `} />
           </Link>
         </div>
@@ -30,7 +30,7 @@ class DisplayQuestions extends Component {
           <ListGroup>
             <ListGroupItem className="justify-content-between pl-2">
               <Badge className="mr-2" color={background} pill>1</Badge>
-              <Link to={`/Poll/${idQuestions.id}`}>
+              <Link to={`/questions/${idQuestions.id}`}>
                 <button className={`btn btn-outline-${color}`}>
                   {optionOne.text}
                 </button>
@@ -38,7 +38,7 @@ class DisplayQuestions extends Component {
             </ListGroupItem>
             <ListGroupItem className="justify-content-between pl-2">
               <Badge className="mr-2" color={background} pill>2</Badge>
-              <Link to={`/Poll/${idQuestions.id}`}>
+              <Link to={`/questions/${idQuestions.id}`}>
                 <button className={`btn btn-outline-${color}`}>
                   {optionTwo.text}
                 </button>
@@ -53,6 +53,7 @@ class DisplayQuestions extends Component {
 function mapStateToProps({
   questions, authedUser, users, template,
 }, { idQuestions }) {
+  console.log(idQuestions )
   return {
     idQuestions: questions[idQuestions] || null,
     user: users[authedUser],
