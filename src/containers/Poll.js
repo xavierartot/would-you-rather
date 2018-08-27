@@ -20,14 +20,8 @@ class ViewPoll extends Component {
         whichPoll = <UnAnsweredPoll question={question} />
       }
     }
-    // console.log(vote)
     return (
-      <div
-        className="ViewPoll d-flex justify-content-center align-items-center"
-        style={{
-          height: '82vh',
-        }}
-      >
+      <div className="d-flex align-items-center align-self-center justify-content-center">
         {whichPoll}
       </div>
     )

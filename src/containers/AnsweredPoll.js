@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Card, CardImg, CardText, CardBody, CardHeader } from 'reactstrap'
+import { Card, CardImg, CardBody, CardHeader } from 'reactstrap'
 import { formatDate } from '../utils/helper'
 import { connect } from 'react-redux'
- import { MdCheck } from 'react-icons/md'
-// import { MdNetworkCheck } from 'react-icons/md'
-// import { MdCheckBox } from 'react-icons/md'
-// import { MdCheckBoxOutlineBlank } from 'react-icons/md'
-// import { MdRadioButtonChecked } from 'react-icons/md'
-// import { MdCheckCircle } from 'react-icons/md'
-import { MdPlaylistAddCheck } from 'react-icons/md'
+import AnswerPollStatistics from './AnswerPollStatistics'
 
 
 // import { MdPlaylistAdd } from 'react-icons/md'
@@ -16,48 +10,42 @@ import { MdPlaylistAddCheck } from 'react-icons/md'
 class AnsweredPoll extends Component {
   render() {
     const {
-      authedUser, users, question, color,
+      authedUser, users, question, numberOptionOne, numberOptionTwo, percentageOptionOneVotes, percentageOptionTwoVotes, voteOne, voteTwo,
     } = this.props
-    // console.log(question.optionOne.text)
-    // console.log(question.optionTwo.text)
-    const voteOne = question.optionOne.votes.some(e => e === authedUser)
-    const voteTwo = question.optionTwo.votes.some(e => e === authedUser)
-    // console.log(voteOne, voteTwo)
+    console.log(numberOptionOne)
     return (
-      <div className="d-flex justify-content-center answeredPoll">
-        <Card className="d-flex flex-column">
-          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name} - voted</CardHeader>
-          <CardBody className="d-flex flex-row justify-content-between">
+      <div className="answeredPoll ">
+        <Card className="card " style={{ width: '23rem' }}>
+          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name} - You already voted</CardHeader>
+          <CardBody className="">
             <CardImg
               alt={users[authedUser].avatarURL}
-							className="rounded mr-2"
-							src={users[authedUser].avatarURL}
-							style={{ height: '40%', width: '40%' }} top
+              className="rounded mr-2"
+              src={users[authedUser].avatarURL}
+              top
+              width="100%"
             />
-            <div className="d-flex flex-column mb-4">
-              <p className="h1 mb-3">Would you rather </p>
-              {
+            <p className="h3 mb-3 mt-3 text-align-center d-block">Would you rather </p>
+            {
               voteOne === true || voteTwo === true
-              ? <div>
-                <div>
-                </div>
-                <CardText className={`text-${color}`} style={{ fontSize: '1.6rem' }}>
-                  {voteOne === true
-                  ? <Button className={`btn btn-outline-${color}`} style={{ fontSize: '1.6rem' }}>{question.optionOne.text}<MdPlaylistAddCheck className={`text-${color}`} style={{ fontSize: '1.5rem' }} /></Button>
-
-                  : question.optionOne.text
-}
-                </CardText>
-                <CardText className={`text-${color}`} style={{ fontSize: '1.6rem' }} >
-                  {voteTwo === true
-                  ?   <Button className={`btn btn-outline-${color}`} style={{ fontSize: '1.6rem' }}><MdCheck  className={`text-${color}`} style={{ fontSize: '1.8rem' }} />{question.optionTwo.text}  </Button>
-                  : question.optionTwo.text
-}
-                </CardText>
-              </div>
-              : null
+                ?
+                  voteOne
+                  ? <AnswerPollStatistics
+                    numberOption={numberOptionOne}
+                    percentageOption={percentageOptionOneVotes}
+                    textVoteOne={question.optionOne.text}
+                    textVoteTwo={question.optionTwo.text}
+                    vote="voteOne"
+                  />
+                  : <AnswerPollStatistics
+                    numberOption={numberOptionTwo}
+                    percentageOption={percentageOptionTwoVotes}
+                    textVoteOne={question.optionOne.text}
+                    textVoteTwo={question.optionTwo.text}
+                    vote="voteTwo"
+                  />
+                : null
               }
-            </div>
           </CardBody>
         </Card>
       </div>
@@ -65,25 +53,29 @@ class AnsweredPoll extends Component {
   }
 }
 function mapStateToProps({ users, authedUser, template }, props) {
-  const {question} = props
-  const numberUsers = Object.values(users).length
-  console.log(numberUsers )
-  console.log(question.optionOne.votes)
-  console.log(question.optionTwo.votes)
-  const oo = question.optionOne.votes
-  const ot = question.optionTwo.votes
-  console.log(oo.length)
-  console.log(ot.length)
-//the number of people who voted for that option
-let numberOptionOne = oo.length
-let numberOptionTwo = ot.length
+  const { question } = props,
+    voteOne = question.optionOne.votes,
+    voteTwo = question.optionTwo.votes,
+    totalUsers = Object.values(users).length,
+    numberOptionOne = question.optionOne.votes.length,
+    numberOptionTwo = question.optionTwo.votes.length,
+    percentageOptionOneVotes = numberOptionOne && numberOptionOne <= 0
+      ? null
+      : `${((numberOptionOne / totalUsers) * 100).toFixed(2)}%`,
+    percentageOptionTwoVotes = numberOptionTwo && numberOptionTwo <= 0
+      ? null
+      : `${((numberOptionTwo / totalUsers) * 100).toFixed(2)}%`
   return {
     users,
     authedUser,
     color: template.color,
     background: template.background,
-numberOptionOne,
-numberOptionTwo,
+    numberOptionOne,
+    numberOptionTwo,
+    percentageOptionOneVotes,
+    percentageOptionTwoVotes,
+    voteOne: voteOne.some(e => e === authedUser),
+    voteTwo: voteTwo.some(e => e === authedUser),
   }
 }
 export default connect(mapStateToProps)(AnsweredPoll)
