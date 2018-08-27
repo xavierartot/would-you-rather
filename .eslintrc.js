@@ -4,21 +4,16 @@
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
+    "ecmaVersion": 6,
     allowImportExportEverywhere: false,
     ecmaFeatures: {
       jsx: true,
     },
   },
-  plugins: [
-    'react',
-    'react-redux',
-  ],
-  extends: [
-    'airbnb',
-    // "eslint:recommended"
-    'plugin:react/recommended',
-    'plugin:react-redux/recommended',
-  ],
+  plugins: ['react', 'react-redux', ],
+  extends: ['airbnb',
+  // "eslint:recommended"
+  'plugin:react/recommended', 'plugin:react-redux/recommended', ],
   rules: {
     'import/no-named-as-default': 0,
     'react/jsx-indent': [2, 2], // error & 2 spaces
@@ -73,3 +68,4 @@ module.exports = {
     'react/wrap-multilines': 1,
   },
 }
+

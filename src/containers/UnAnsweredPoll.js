@@ -70,7 +70,9 @@ class UnAnsweredPoll extends Component {
         <Card className="mb-3 shadow rounded  d-flex flex-column">
           <CardHeader>
             <div className="d-flex justify-content-start mb-3">
-              <img alt={user.id} className="rounded-circle mr-3" src={user.avatarURL} style={{ height: '60px', width: '60px' }}
+              <img alt={user.id} className="rounded-circle mr-3"
+                src={user.avatarURL}
+                style={{ height: '60px', width: '60px' }}
               />
               <span className="align-items-center d-flex">{user.name}</span>
             </div>
