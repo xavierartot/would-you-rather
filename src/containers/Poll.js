@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
+import { Redirect, withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
 import UnAnsweredPoll from '../containers/UnAnsweredPoll'
 import AnsweredPoll from '../containers/AnsweredPoll'
+import isEmpty from 'lodash/isEmpty'
+
+// import PageNotFound from '../components/PageNotFound'
 
 class ViewPoll extends Component {
+  state = {
+    idRoute: 'test',
+  }
+  componentDidMount() {
+  }
   render() {
-    const { question, authedUser } = this.props
-    if (authedUser === null) {
-      if (question === null) {
-        console.log(this.props.question)
-        console.log('redirect')
-      }
+    if (redirectDynamicly) {
+      return <Redirect to="/404" />
     }
+
+    const {
+      redirectDynamicly, questions, question, authedUser,
+    } = this.props
     let vote,
       whichPoll = null
-    if (this.props.question !== null && this.props.authedUser) { // load the question object
+    if (question !== null && authedUser) { // load the question object
       const arrayVotes = [...question.optionOne.votes, ...question.optionTwo.votes]
       vote = arrayVotes.some(e => e === authedUser)
       if (vote) {
@@ -36,12 +44,28 @@ function mapStateToProps({
 }, { match }) {
   const { id } = match.params
   const question = questions[id] || null
-  // console.log(questions, users, id)
+  const q = Object.values(questions)
+  // console.log(q)
+  const temp = q.map(e => e.id)
+  // console.log(temp, id)
+  let redirectDynamicly
+  for (let i = 0, len = temp.length; i < len; i++) {
+    if (temp[i] !== id) {
+      redirectDynamicly = true // redirect
+      // console.log(temp[i], id, redirectDynamicly, i)
+    } else if (temp[i] === id) {
+      redirectDynamicly = false
+      // console.log(temp[i], id, redirectDynamicly, i)
+      break
+    }
+  }
   return {
     authedUser,
     color: template.color,
     question,
+    questions,
     users,
+    redirectDynamicly,
   }
 }
 export default withRouter(connect(mapStateToProps)(ViewPoll))
