@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { handleTemplate } from '../actions/template'
@@ -26,13 +30,13 @@ class App extends Component {
       <Router>
         <Fragment>
           <Header />
-          <div>
+          <Switch>
             <Route component={LeaderBoard} path="/leaderboard" />
             <Route component={Home} exact path="/" />
             <Route component={Add} path="/add" />
             <Route component={Poll} path="/questions/:id" />
-            <Route component={PageNotFound} path="*" />
-          </div>
+            <Route component={PageNotFound} />
+          </Switch>
         </Fragment>
       </Router>
     )
