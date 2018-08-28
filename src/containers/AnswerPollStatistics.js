@@ -49,28 +49,36 @@ class AnswerPollStatistics extends Component {
                 style={{ fontSize: '1em' }}
               >
                 {statistics.textVoteOne}
-
                 <MdCheck
                   className={`text-${color} ml-3`}
                   style={{ fontSize: '1.6rem' }}
                 />
               </Button>
-              <span>vote(s): <Badge color={background}>{statistics.countOptionOne}</Badge> Percentage: <Badge color={background}>{statistics.percentageOptionOneVotes }%</Badge></span>
-              <span className="d-block">{statistics.textVoteTwo}: </span>
+              <span>
+                vote(s): <Badge className="mr-2" color={background}>{statistics.countOptionOne}</Badge>
+                Percentage: <Badge color={background}>{statistics.percentageOptionOneVotes }</Badge>
+              </span>
+              <span className="d-block" style={{ fontSize: '1.2em' }}>{statistics.textVoteTwo}: </span>
               {statistics.countOptionTwo !== 0
               ?
-                <span className="">vote(s): <Badge color={background}>{statistics.percentageOptionTwoVotes }%</Badge></span>
+                <span className="">
+                  vote(s): <Badge className="mr-2" color={background}>{statistics.countOptionTwo}</Badge>
+                  Percentage: <Badge color={background}>{statistics.percentageOptionTwoVotes }</Badge>
+                </span>
                 : <span className="through">vote: 0 time</span>
               }
             </span>
           ) : (
             <span>
-              {statistics.countOptionOne !== 0
+              {statistics.countOptionTwo !== 0
               ?
-                <span className="">vote(s): <Badge color={background}>{statistics.percentageOptionOneVotes }%</Badge></span>
+                <span>
+                vote(s): <Badge className="mr-2" color={background}>{statistics.countOptionTwo}</Badge>
+                Percentage: <Badge color={background}>{statistics.percentageOptionTwoVotes }</Badge>
+                </span>
                 : <span className="through">vote: 0 time</span>
               }
-              <span className="d-block">{statistics.textVoteOne}: </span>
+              <span className="d-block">{statistics.textVoteTwo}: </span>
               <Button
                 className={`btn btn-outline-${color} mt-3 d-block`}
                 color={background}
@@ -83,7 +91,16 @@ class AnswerPollStatistics extends Component {
                   style={{ fontSize: '1.6rem' }}
                 />
               </Button>
-              <span className="d-block">vote(s): <Badge color={background}>{statistics.countOptionTwo}</Badge> Percentage: <Badge color={background}>{statistics.percentageOptionTwoVotes }%</Badge></span>
+              <span className="d-block">
+                {statistics.countOptionOne !== 0
+                ?
+                  <span>
+                  vote(s): <Badge className="mr-2" color={background}>{statistics.countOptionOne}</Badge>
+                  Percentage: <Badge color={background}>{statistics.percentageOptionOneVotes }</Badge>
+                  </span>
+                  : <span className="through">vote: 0 time</span>
+                }
+              </span>
             </span>
 
           )}
