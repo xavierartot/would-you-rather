@@ -32,30 +32,30 @@ class AnsweredPoll extends Component {
 }
 function mapStateToProps({ users, authedUser, template }, { question }) {
   // text answer
-  console.log(question.optionOne.text)
-  console.log(question.optionTwo.text)
+  // console.log(question.optionOne.text)
+  // console.log(question.optionTwo.text)
   const voteOne = question.optionOne.votes.some(e => e === authedUser),
     voteTwo = question.optionTwo.votes.some(e => e === authedUser)
-  console.log(voteOne)
-  console.log(voteTwo)
+  // console.log(voteOne)
+  // console.log(voteTwo)
 
   // the number of people who voted for that option;
   const answers = Object.values(users)
     .map(e =>
       Object.entries(e.answers))
   const flat = flatMapDeep(answers)
-  console.log(flat)
+  // console.log(flat)
 
   const arrayTotalAnswers = []
   const idQuestion = question.id
   for (let i = 0, len = flat.length; i < len; i++) {
     if (i % 2 === 0 && flat[i] === idQuestion) {
       arrayTotalAnswers.push(flat[i], flat[i + 1])
-      console.log(flat[i])
-      console.log(flat[i + 1])
+      // console.log(flat[i])
+      // console.log(flat[i + 1])
     }
   }
-  console.log(arrayTotalAnswers)
+  // console.log(arrayTotalAnswers)
 
   let countOptionOne = 0,
     countOptionTwo = 0
@@ -63,10 +63,10 @@ function mapStateToProps({ users, authedUser, template }, { question }) {
     // console.log(arrayTotalAnswers[i])
     if (i % 2 === 1) {
       if (arrayTotalAnswers[i] === 'optionOne') {
-        console.log(arrayTotalAnswers[i])
+        // console.log(arrayTotalAnswers[i])
         countOptionOne++
       } else if (arrayTotalAnswers[i] === 'optionTwo') {
-        console.log(arrayTotalAnswers[i])
+        // console.log(arrayTotalAnswers[i])
         countOptionTwo++
       }
     }
@@ -81,9 +81,9 @@ function mapStateToProps({ users, authedUser, template }, { question }) {
     ? null
     : `${((countOptionTwo / totalUsers) * 100).toFixed(2)}%`
 
-  console.log(countOptionOne, countOptionTwo)
-  console.log(percentageOptionOneVotes, percentageOptionTwoVotes)
-  console.log(users[authedUser].avatarURL)
+  // console.log(countOptionOne, countOptionTwo)
+  // console.log(percentageOptionOneVotes, percentageOptionTwoVotes)
+  // console.log(users[authedUser].avatarURL)
   const statistics = {
     avatar: users[authedUser].avatarURL,
     name: users[authedUser].name,
