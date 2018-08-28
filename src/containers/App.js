@@ -10,6 +10,7 @@ import Home from '../containers/Home'
 import Header from '../containers/Header'
 import LeaderBoard from '../containers/LeaderBoard'
 import Add from '../containers/Add'
+import PageNotFound from '../components/PageNotFound'
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class App extends Component {
     dispatch(handleInitialData())
   }
   render() {
-    //login id === nulll in handleInitialData()
+    // login id === nulll in handleInitialData()
     if (this.props.color === undefined) {
       this.props.dispatch(handleTemplate(templateBootstrap()))
     }
@@ -30,6 +31,7 @@ class App extends Component {
             <Route component={Home} exact path="/" />
             <Route component={Add} path="/add" />
             <Route component={Poll} path="/questions/:id" />
+            <Route component={PageNotFound} path="/404" />
           </div>
         </Fragment>
       </Router>

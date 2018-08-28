@@ -6,6 +6,11 @@ import AnsweredPoll from '../containers/AnsweredPoll'
 
 class ViewPoll extends Component {
   render() {
+    console.log(this.props.question)
+    if (this.props.question === null) {
+      console.log(this.props.question)
+      console.log('redirect')
+    }
     let vote,
       whichPoll = null
     if (this.props.question !== null && this.props.authedUser) { // load the question object
