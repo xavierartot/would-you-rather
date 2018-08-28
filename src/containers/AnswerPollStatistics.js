@@ -6,14 +6,25 @@ import { connect } from 'react-redux'
 class AnswerPollStatistics extends Component {
   render() {
     const {
-      percentageOption, textVoteOne, textVoteTwo, numberOption, vote, color, background,
+      color, background, statistics,
     } = this.props
+    // const statistics = {
+    // percentageOptionOneVotes,
+    // percentageOptionTwoVotes,
+    // voteOne,
+    // voteTwo,
+    // countOptionOne,
+    // countOptionTwo,
+    // textVoteOne: question.optionOne.text,
+    // textVoteTwo: question.optionTwo.text,
+    // }
     return (
       <CardText
         className={`text-${color}`}
         style={{ fontSize: '1.3rem' }}
       >
         <span>
+          {/*
           <span>
             <span
               className={`border border-${background} border-left-0 border-top-0 border-right-0`}
@@ -21,27 +32,61 @@ class AnswerPollStatistics extends Component {
             >statistics
             </span>
             <span className="d-block">
-              {numberOption > 1 ?
-                (<span>votes: <Badge>{numberOption}</Badge></span>)
+              {statistics.countOptionOne > 1 ?
+                (<span>votes: <Badge>{statistics.countOptionOne}</Badge></span>)
                 :
-                (<span>votes: <Badge>{numberOption}</Badge></span>)
+                (<span>vote: <Badge>{statistics.countOptionOne}</Badge></span>)
                 }
             </span>
-            <span className="d-block">
-              <span>Percentage: <Badge>{percentageOption }</Badge></span>
-            </span>
           </span>
-          <Button
-            className={`btn btn-outline-${color} mt-3`}
-            style={{ fontSize: '1em' }}
-          >
-            {vote === 'voteTwo' ? textVoteTwo : textVoteOne}
-            <MdCheck
-              className={`text-${color} mr-3`}
-              style={{ fontSize: '1.4rem' }}
-            />
-          </Button>
-          {vote === 'voteOne' ? textVoteOne : textVoteTwo}
+ */}
+          {statistics.voteOne
+          ? (
+            <span>
+              <Button
+                className={`btn btn-outline-${color} mt-3 d-block`}
+                color={background}
+                style={{ fontSize: '1em' }}
+              >
+                {statistics.textVoteOne}
+
+                <MdCheck
+                  className={`text-${color} ml-3`}
+                  style={{ fontSize: '1.6rem' }}
+                />
+              </Button>
+              <span>vote(s): <Badge color={background}>{statistics.countOptionOne}</Badge> Percentage: <Badge color={background}>{statistics.percentageOptionOneVotes }%</Badge></span>
+              <span className="d-block">{statistics.textVoteTwo}: </span>
+              {statistics.countOptionTwo !== 0
+              ?
+                <span className="">vote(s): <Badge color={background}>{statistics.percentageOptionTwoVotes }%</Badge></span>
+                : <span className="through">vote: 0 time</span>
+              }
+            </span>
+          ) : (
+            <span>
+              {statistics.countOptionOne !== 0
+              ?
+                <span className="">vote(s): <Badge color={background}>{statistics.percentageOptionOneVotes }%</Badge></span>
+                : <span className="through">vote: 0 time</span>
+              }
+              <span className="d-block">{statistics.textVoteOne}: </span>
+              <Button
+                className={`btn btn-outline-${color} mt-3 d-block`}
+                color={background}
+                style={{ fontSize: '1em' }}
+              >
+                {statistics.textVoteTwo}
+
+                <MdCheck
+                  className={`text-${color} ml-3`}
+                  style={{ fontSize: '1.6rem' }}
+                />
+              </Button>
+              <span className="d-block">vote(s): <Badge color={background}>{statistics.countOptionTwo}</Badge> Percentage: <Badge color={background}>{statistics.percentageOptionTwoVotes }%</Badge></span>
+            </span>
+
+          )}
         </span>
       </CardText>
     )

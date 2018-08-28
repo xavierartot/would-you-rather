@@ -53,11 +53,11 @@ let questions = {
     author: 'johndoe',
     timestamp: 1168479767190,
     optionOne: {
-      votes: [],
+      votes: ['johndoe', 'sarahedo'],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: [],
       text: 'become a supervillian',
     },
   },

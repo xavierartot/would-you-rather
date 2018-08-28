@@ -35,3 +35,6 @@ a {
 .navbar-brand {
   font-size: 2em;
 }
+.through {
+    text-decoration: line-through;
+}

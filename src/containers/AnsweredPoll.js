@@ -3,79 +3,103 @@ import { Card, CardImg, CardBody, CardHeader } from 'reactstrap'
 import { formatDate } from '../utils/helper'
 import { connect } from 'react-redux'
 import AnswerPollStatistics from './AnswerPollStatistics'
-
-
-// import { MdPlaylistAdd } from 'react-icons/md'
+import flatMapDeep from 'lodash/flatMapDeep'
 
 class AnsweredPoll extends Component {
   render() {
     const {
-      authedUser, users, question, numberOptionOne, numberOptionTwo, percentageOptionOneVotes, percentageOptionTwoVotes, voteOne, voteTwo,
+      statistics,
     } = this.props
-    console.log(numberOptionOne)
     return (
       <div className="answeredPoll ">
         <Card className="card " style={{ width: '23rem' }}>
-          <CardHeader>Created: {formatDate(question.timestamp)} by {users[authedUser].name} - You already voted</CardHeader>
+          <CardHeader>Created: {statistics.dateCreate} by {statistics.name} - You have already voted</CardHeader>
           <CardBody className="">
             <CardImg
-              alt={users[authedUser].avatarURL}
+              alt={statistics.avatar}
               className="rounded mr-2"
-              src={users[authedUser].avatarURL}
+              src={statistics.avatar}
               top
               width="100%"
             />
-            <p className="h3 mb-3 mt-3 text-align-center d-block">Would you rather </p>
-            {
-              voteOne === true || voteTwo === true
-                ?
-                  voteOne
-                  ? <AnswerPollStatistics
-                    numberOption={numberOptionOne}
-                    percentageOption={percentageOptionOneVotes}
-                    textVoteOne={question.optionOne.text}
-                    textVoteTwo={question.optionTwo.text}
-                    vote="voteOne"
-                  />
-                  : <AnswerPollStatistics
-                    numberOption={numberOptionTwo}
-                    percentageOption={percentageOptionTwoVotes}
-                    textVoteOne={question.optionOne.text}
-                    textVoteTwo={question.optionTwo.text}
-                    vote="voteTwo"
-                  />
-                : null
-              }
+            <p className="h3 mb-0 mt-3 text-align-center d-block">Would you rather </p>
+            <AnswerPollStatistics statistics={statistics} />
           </CardBody>
         </Card>
       </div>
     )
   }
 }
-function mapStateToProps({ users, authedUser, template }, props) {
-  const { question } = props,
-    voteOne = question.optionOne.votes,
-    voteTwo = question.optionTwo.votes,
-    totalUsers = Object.values(users).length,
-    numberOptionOne = question.optionOne.votes.length,
-    numberOptionTwo = question.optionTwo.votes.length,
-    percentageOptionOneVotes = numberOptionOne && numberOptionOne <= 0
-      ? null
-      : `${((numberOptionOne / totalUsers) * 100).toFixed(2)}%`,
-    percentageOptionTwoVotes = numberOptionTwo && numberOptionTwo <= 0
-      ? null
-      : `${((numberOptionTwo / totalUsers) * 100).toFixed(2)}%`
-  return {
-    users,
-    authedUser,
-    color: template.color,
-    background: template.background,
-    numberOptionOne,
-    numberOptionTwo,
+function mapStateToProps({ users, authedUser, template }, { question }) {
+  // text answer
+  console.log(question.optionOne.text)
+  console.log(question.optionTwo.text)
+  const voteOne = question.optionOne.votes.some(e => e === authedUser),
+    voteTwo = question.optionTwo.votes.some(e => e === authedUser)
+  console.log(voteOne)
+  console.log(voteTwo)
+
+  // the number of people who voted for that option;
+  const answers = Object.values(users)
+    .map(e =>
+      Object.entries(e.answers))
+  const flat = flatMapDeep(answers)
+  console.log(flat)
+
+  const arrayTotalAnswers = []
+  const idQuestion = question.id
+  for (let i = 0, len = flat.length; i < len; i++) {
+    if (i % 2 === 0 && flat[i] === idQuestion) {
+      arrayTotalAnswers.push(flat[i], flat[i + 1])
+      console.log(flat[i])
+      console.log(flat[i + 1])
+    }
+  }
+  console.log(arrayTotalAnswers)
+
+  let countOptionOne = 0,
+    countOptionTwo = 0
+  for (let i = 0, len = arrayTotalAnswers.length; i < len; i++) {
+    // console.log(arrayTotalAnswers[i])
+    if (i % 2 === 1) {
+      if (arrayTotalAnswers[i] === 'optionOne') {
+        console.log(arrayTotalAnswers[i])
+        countOptionOne++
+      } else if (arrayTotalAnswers[i] === 'optionTwo') {
+        console.log(arrayTotalAnswers[i])
+        countOptionTwo++
+      }
+    }
+  }
+  const totalUsers = Object.values(users).length
+  // percentage: the percentage of people who voted for that option.
+
+  const percentageOptionOneVotes = countOptionOne <= 0
+    ? null
+    : `${((countOptionOne / totalUsers) * 100).toFixed(2)}%`
+  const percentageOptionTwoVotes = countOptionTwo <= 0
+    ? null
+    : `${((countOptionTwo / totalUsers) * 100).toFixed(2)}%`
+
+  console.log(countOptionOne, countOptionTwo)
+  console.log(percentageOptionOneVotes, percentageOptionTwoVotes)
+  console.log(users[authedUser].avatarURL)
+  const statistics = {
+    avatar: users[authedUser].avatarURL,
+    name: users[authedUser].name,
     percentageOptionOneVotes,
     percentageOptionTwoVotes,
-    voteOne: voteOne.some(e => e === authedUser),
-    voteTwo: voteTwo.some(e => e === authedUser),
+    voteOne,
+    voteTwo,
+    countOptionOne,
+    countOptionTwo,
+    dateCreate: formatDate(question.timestamp),
+    textVoteOne: question.optionOne.text,
+    textVoteTwo: question.optionTwo.text,
+  }
+
+  return {
+    statistics,
   }
 }
 export default connect(mapStateToProps)(AnsweredPoll)
