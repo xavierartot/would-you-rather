@@ -31,7 +31,7 @@ class App extends Component {
             <Route component={Home} exact path="/" />
             <Route component={Add} path="/add" />
             <Route component={Poll} path="/questions/:id" />
-            <Route component={PageNotFound} path="/404" />
+            <Route component={PageNotFound} path="*" />
           </div>
         </Fragment>
       </Router>
