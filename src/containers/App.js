@@ -35,13 +35,8 @@ class App extends Component {
             <Route component={Home} exact path="/" />
             <Route component={Add} path="/add" />
             <Route component={Poll} path="/questions/:id" />
-<<<<<<< HEAD
             <Route component={PageNotFound} />
           </Switch>
-=======
-            <Route component={PageNotFound} path="*" />
-          </div>
->>>>>>> 03a6cd46e94b45e8234637ec3775558b46af4c58
         </Fragment>
       </Router>
     )
