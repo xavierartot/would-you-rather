@@ -6,12 +6,14 @@ import LeaderBoardAnswered from './LeaderBoardAnswered'
 
 class LeaderBoard extends Component {
   render() {
-    const { color, users, totalQuestion } = this.props
+    const {
+      color, users, totalQuestion, background,
+    } = this.props
     return (
       <div className="LeaderBoard table-responsive-sm">
-        <Table className="ddd">
+        <Table>
           <thead>
-            <tr>
+            <tr className={`bg-${background} ${color}`}>
               <th scope="col">Rank</th>
               <th scope="col">User</th>
               <th scope="col">Poll Created</th>
@@ -53,6 +55,7 @@ function mapStateToProps({ users, questions, template }) {
     questions,
     totalQuestion,
     color: template.color,
+    background: template.background,
   }
 }
 export default connect(mapStateToProps)(LeaderBoard)

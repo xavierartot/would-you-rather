@@ -38,7 +38,7 @@ class Home extends Component {
       return (
         <div className="Home">
           <Nav className="justify-content-center mb-3 " tabs>
-            <NavItem>
+            <NavItem className="dddd">
               <NavLink
                 className={classnames({ active: this.state.activeTab === '1' })}
                 onClick={() => { this.toggle('1') }}

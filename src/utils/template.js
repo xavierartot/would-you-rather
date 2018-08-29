@@ -1,4 +1,5 @@
 import random from 'lodash/random'
+// import flatten from 'lodash/flatten'
 
 export default function templateBootstrap(darked = '') {
   const arrayColors = {
@@ -10,19 +11,8 @@ export default function templateBootstrap(darked = '') {
     5: { background: 'warning', color: 'text-dark' },
     6: { background: 'info', color: 'text-white' },
   }
-  let objColor = Object.values(arrayColors),
-    randColor
-  // randColor = objColor.map(item => randColor = arrayColors[random(0, arrayColors.length)])
-
-  for (let i = 0, len = objColor.length; i < len; i++) {
-    return randColor = objColor[random(0, arrayColors.length)]
-  }
-  console.log(randColor)
-  randColor = [randColor.background, randColor.color]
-  console.log(randColor)
-  if (randColor === undefined) {
-    randColor = ['warning', 'text-dark']
-  }
-  console.log(randColor)
+  let randColor = Object.values(arrayColors)
+  const randNumber = random(0, randColor.length - 1)
+  randColor = randColor[randNumber]
   return randColor
 }

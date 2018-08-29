@@ -48,6 +48,7 @@ class App extends Component {
 }
 
 function mapStateToProps({ template, authedUser }, props) {
+  // console.log(template.color, template.background)
   return {
     color: template.color,
     background: template.background,

@@ -10,7 +10,7 @@ class Add extends Component {
   state = {
     optionTwo: '',
     optionOne: '',
-    redirectToHome: false,
+    redirectToHome: false, // after you sent the form
     emptyFieldOptionOne: false,
     emptyFieldOptionTwo: false,
   }
@@ -56,17 +56,21 @@ class Add extends Component {
     })
   }
   render() {
-    const { background  } = this.props
-    console.log( this.props )
+    const { background, color } = this.props
+    console.log(this.props)
     if (this.state.redirectToHome) {
       return <Redirect to="/" />
     }
     return (
       <div className="d-flex justify-content-center">
-        <Card className="d-flex flex-column mb-3 shadow rounded" style={{width: '340px'}}>
-          <CardHeader><h3 className="center">Would You Rather</h3></CardHeader>
+        <Card className="d-flex flex-column mb-3 shadow rounded border-0" style={{ width: '340px' }}>
+          <CardHeader className={`center bg-${background}`}>
+            <h3 className={`center bg-${background} ${color}`}>
+              Would You Rather
+            </h3>
+          </CardHeader>
           <CardBody className="d-flex flex-row justify-content-between">
-            <form onSubmit={this.handleSubmit} style={{ width: '100%'}}>
+            <form onSubmit={this.handleSubmit} style={{ width: '100%' }}>
               <div className="form-group">
                 <label htmlFor="OptionOne">Option One</label>
                 <input
@@ -101,7 +105,8 @@ class Add extends Component {
                 }
               </div>
               <button className={`btn btn-${background}`} type="submit">Submit</button>
-          </form></CardBody>
+            </form>
+          </CardBody>
         </Card>
 
       </div>
@@ -111,6 +116,7 @@ class Add extends Component {
 function mapStateToProps({ authedUser, template }) {
   return {
     authedUser,
+    color: template.color,
     background: template.background,
   }
 }
