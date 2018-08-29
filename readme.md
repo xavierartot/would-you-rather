@@ -1,5 +1,5 @@
 ## Would You Rather?
-# Would You Rather Project [![Working in Progress Status](https://travis-ci.org/xavierartot/would-you-rather.svg?branch=master)](https://travis-ci.org/xavierartot/project-would-you-rather) [![Greenkeeper badge](https://badges.greenkeeper.io/armujahid/reactnd-project-would-you-rather.svg)](https://greenkeeper.io/)
+# Would You Rather Project
 
 This project is created for assessment in Udacity's nanodegree React and Redux course.
 This is basically a poll app in which user can create or answer polls with two options.
@@ -16,11 +16,11 @@ Answer cannot be changed once submitted.
 
 ## Installation
 
-* install all project dependencies with `yarn install` or `npm install`
-* start the development server with `yarn start` or `npm start`
-* Production build can be created using  `yarn build` or `npm run build`
-* one line install:
-- git clone https://github.com/xavierartot/would-you-rather && cd would-you-rather && yarn && yarn start
+* install all project dependencies with `yarn install`
+* start the development server with `yarn start`
+* Production build can be created using  `yarn build`
+* install in one line from your Terminal:
+ git clone https://github.com/xavierartot/would-you-rather && cd would-you-rather && yarn && yarn start
 
 
 ## Backend Server
