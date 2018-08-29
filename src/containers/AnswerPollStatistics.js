@@ -78,7 +78,7 @@ class AnswerPollStatistics extends Component {
                 </span>
                 : <span className="through">vote: 0 time</span>
               }
-              <span className="d-block">{statistics.textVoteTwo}: </span>
+              <span className="d-block">{statistics.textVoteOne}: </span>
               <Button
                 className={`btn btn-outline-${color} mt-3 d-block`}
                 color={background}
