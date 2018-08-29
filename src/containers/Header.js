@@ -64,7 +64,7 @@ class Header extends Component {
               </NavItem>
               <NavItem className="d-flex align-items-center">
                 <NavLink className={`text-${background}`} tag={Link} to="/add">
-                  New WYR
+                  Create Poll
                 </NavLink>
               </NavItem>
               <NavItem>
