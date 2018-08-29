@@ -3,23 +3,17 @@ import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom' // withRouter allow to connect the route as property with connect
 import UnAnsweredPoll from '../containers/UnAnsweredPoll'
 import AnsweredPoll from '../containers/AnsweredPoll'
-import isEmpty from 'lodash/isEmpty'
 
 // import PageNotFound from '../components/PageNotFound'
 
 class ViewPoll extends Component {
-  state = {
-    idRoute: 'test',
-  }
-  componentDidMount() {
-  }
   render() {
-    if (redirectDynamicly) {
+    // redirect to 404 if the id is not match the database
+    if (this.props.redirectDynamicly) {
       return <Redirect to="/404" />
     }
-
     const {
-      redirectDynamicly, questions, question, authedUser,
+      question, authedUser,
     } = this.props
     let vote,
       whichPoll = null
@@ -54,7 +48,7 @@ function mapStateToProps({
       redirectDynamicly = true // redirect
       // console.log(temp[i], id, redirectDynamicly, i)
     } else if (temp[i] === id) {
-      redirectDynamicly = false
+      redirectDynamicly = false // don't redirect
       // console.log(temp[i], id, redirectDynamicly, i)
       break
     }
