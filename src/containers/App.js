@@ -15,6 +15,7 @@ import Header from '../containers/Header'
 import LeaderBoard from '../containers/LeaderBoard'
 import Add from '../containers/Add'
 import PageNotFound from '../components/PageNotFound'
+import Modal from '../containers/Modal'
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,9 @@ class App extends Component {
     // login id === nulll in handleInitialData()
     if (this.props.color === undefined) {
       this.props.dispatch(handleTemplate(templateBootstrap()))
+    }
+    if (this.props.authedUser === null) { // user is not logged launch the modal
+      return <Modal buttonLabel="open" />
     }
     return (
       <Router>
@@ -43,10 +47,11 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ template }, props) {
+function mapStateToProps({ template, authedUser }, props) {
   return {
     color: template.color,
     background: template.background,
+    authedUser,
   }
 }
 export default connect(mapStateToProps)(App)

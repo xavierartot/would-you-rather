@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardTitle,CardBody, CardHeader } from 'reactstrap'
+import { Card, CardTitle, CardBody, CardHeader } from 'reactstrap'
 import { connect } from 'react-redux'
 // import { MdPlaylistAddCheck } from 'react-icons/md'
 import { formatDate } from '../utils/helper'
@@ -20,34 +20,34 @@ class UnAnsweredPoll extends Component {
   }
 
   colorsTheme = (background, color) => {
-    //const {
-      //color, background,
-    //} = this.props
+    // const {
+    // color, background,
+    // } = this.props
     let radioColor = ''
     switch (background) {
       case 'dark':
-        radioColor =   [ '#343a40 !important', 'white']
-        break;
+        radioColor = ['#343a40 !important', 'white']
+        break
       case 'primary':
-        radioColor =   [ '#007bff !important', 'white']
-        break;
+        radioColor = ['#007bff !important', 'white']
+        break
       case 'secondary':
-        radioColor = [ '#6c757d !important', 'white']
-        break;
+        radioColor = ['#6c757d !important', 'white']
+        break
       case 'success':
-        radioColor = [ '#28a745 !important', 'white']
-        break;
+        radioColor = ['#28a745 !important', 'white']
+        break
       case 'danger':
-        radioColor = [ '#dc3545 !important', 'white']
-        break;
+        radioColor = ['#dc3545 !important', 'white']
+        break
       case 'warning':
-        radioColor = [ '#ffc107 !important', 'white']
-        break;
+        radioColor = ['#ffc107 !important', 'white']
+        break
       case 'info':
-        radioColor = [ '#17a2b8 !important', 'black']
-        break;
+        radioColor = ['#17a2b8 !important', 'black']
+        break
       default:
-        radioColor = [ '#343a40 !important', 'white']
+        radioColor = ['#343a40 !important', 'white']
     }
     return radioColor
   }
@@ -55,11 +55,11 @@ class UnAnsweredPoll extends Component {
     const {
       authedUser, question, users, color, background,
     } = this.props
-    //console.log(this.colorsTheme(color, background) )
+    // console.log(this.colorsTheme(color, background) )
     const theme = this.colorsTheme(color, background)
     const themeBgc = theme[1]
     const themeColor = theme[0]
-    console.log(themeColor , themeBgc  )
+    console.log(themeColor, themeBgc)
     // const id = question[id]
     const user = users[authedUser]
     // console.log(question)
@@ -70,7 +70,9 @@ class UnAnsweredPoll extends Component {
         <Card className="mb-3 shadow rounded  d-flex flex-column">
           <CardHeader>
             <div className="d-flex justify-content-start mb-3">
-              <img alt={user.id} className="rounded-circle mr-3"
+              <img
+                alt={user.id}
+                className="rounded-circle mr-3"
                 src={user.avatarURL}
                 style={{ height: '60px', width: '60px' }}
               />
@@ -82,12 +84,12 @@ class UnAnsweredPoll extends Component {
             <CardTitle className="mb-0 card-title h3 mb-3">
               Would You Rather
             </CardTitle>
-            <RadioGroup  horizontal onChange={this.onChange} >
+            <RadioGroup horizontal onChange={this.onChange} >
               <RadioButton iconSize={20} pointStyling="test2" rootColor={themeColor} value="optionOne">
-                {optionOneText}
+                <span className="mr-0">{optionOneText}</span>
               </RadioButton>
               <RadioButton buttonStyling="test" iconSize={20} rootColor={themeColor} value="optionTwo">
-                { optionTwoText }
+                <span className="mr-0">{optionTwoText }</span>
               </RadioButton>
             </RadioGroup>
           </CardBody>
