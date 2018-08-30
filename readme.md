@@ -27,6 +27,11 @@ Answer cannot be changed once submitted.
 
 Currently `_DATA.js` file is used to mock backend. Read backend may be added in future
 
+## deployment on Github
+https://github.com/gitname/react-gh-pages
+
 ## License
 
 MIT License: https://xavierartot.mit-license.org/@2018/
+
+
