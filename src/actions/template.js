@@ -8,7 +8,6 @@ export function changeTemplate(color) {
 }
 export function handleTemplate(color) {
   return (dispatch, getState) => {
-    console.log(color)
     dispatch(changeTemplate(color))
   }
 }
