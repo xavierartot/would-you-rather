@@ -31,12 +31,12 @@ class App extends Component {
       return <Modal buttonLabel="open" />
     }
     return (
-      <Router>
+      <Router basename="/would-you-rather/">
         <Fragment>
           <Header />
           <Switch>
-            <Route component={LeaderBoard} path="/leaderboard" />
             <Route component={Home} exact path="/" />
+            <Route component={LeaderBoard} path="/leaderboard" />
             <Route component={Add} path="/add" />
             <Route component={Poll} path="/questions/:id" />
             <Route component={PageNotFound} />
