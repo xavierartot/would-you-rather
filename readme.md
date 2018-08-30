@@ -1,4 +1,7 @@
 ## Would You Rather?
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/xavierartot/would-you-rather.svg)](https://greenkeeper.io/)
+
 # Would You Rather Project
 
 This project is created for assessment in Udacity's nanodegree React and Redux course.
