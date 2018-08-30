@@ -26,18 +26,11 @@ Change	components/UsersFormSelect.js	/^        <Input onChange={this.handleChang
 Change	components/UsersFormSelect.js	/^  handleChange= (event) => {$/;"	c
 Change	containers/Add.js	/^                  onChange={this.handleOptionOne}$/;"	c
 Change	containers/Add.js	/^                  onChange={this.handleOptionTwo}$/;"	c
-Change	containers/UnAnsweredPoll.js	/^            <RadioGroup  horizontal onChange={this.onChange} >$/;"	c
+Change	containers/UnAnsweredPoll.js	/^            <RadioGroup horizontal onChange={this.onChange} >$/;"	c
 Change	containers/UnAnsweredPoll.js	/^  onChange = (value) => {$/;"	c
-Click	containers/Header.js	/^          <NavbarToggler onClick={this.toggle} \/>$/;"	c
-Click	containers/Home.js	/^              onClick={() => { this.toggle('1'); }}$/;"	c
-Click	containers/Home.js	/^              onClick={() => { this.toggle('2'); }}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#007bff !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#17a2b8 !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#28a745 !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#343a40 !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#6c757d !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#dc3545 !important', color: 'white'}$/;"	c
-Color	containers/test.js	/^        return  radioColor = { background: '#ffc107 !important', color: 'black'}$/;"	c
+Click	containers/Header.js	/^          <NavbarToggler onClick={this.toggle} style={{ borderColor: `${background}` }} \/>$/;"	c
+Click	containers/Home.js	/^                onClick={() => { this.toggle('1') }}$/;"	c
+Click	containers/Home.js	/^                onClick={() => { this.toggle('2') }}$/;"	c
 Colors	utils/template.js	/^  const arrayColors = {$/;"	c
 Create	containers/AnsweredPoll.js	/^    dateCreate: formatDate(question.timestamp),$/;"	c
 Created	containers/AnsweredPoll.js	/^          <CardHeader>Created: {statistics.dateCreate} by {statistics.name} - You have already voted<\/CardHeader>$/;"	c
@@ -47,26 +40,31 @@ Generated	containers/Add.js	/^    \/\/ const idGenerated = generateUID()\/\/ id 
 Header	containers/Header.js	/^class Header extends Component {$/;"	c
 Home	containers/Home.js	/^class Home extends Component {$/;"	c
 LeaderBoard	containers/LeaderBoard.js	/^class LeaderBoard extends Component {$/;"	c
-LeaderBoardList	containers/LeaderBoardList.js	/^class LeaderBoardList extends Component {$/;"	c
+LeaderBoardAnswered	containers/LeaderBoardAnswered.js	/^class LeaderBoardAnswered extends Component {$/;"	c
+LeaderBoardList	containers/LeaderBoardUnAnswered.js	/^class LeaderBoardList extends Component {$/;"	c
 ModalExample	containers/Modal.js	/^class ModalExample extends React.Component {$/;"	c
 Name	containers/Add.js	/^              <button className={`btn btn-${background}`} type="submit">Submit<\/button>$/;"	c
+Name	containers/Add.js	/^            <h3 className={`center bg-${background} ${color}`}>$/;"	c
+Name	containers/Add.js	/^          <CardHeader className={`center bg-${background}`}>$/;"	c
 Name	containers/AnswerPollStatistics.js	/^                  className={`text-${color} ml-3`}$/;"	c
 Name	containers/AnswerPollStatistics.js	/^                className={`btn btn-outline-${color} mt-3 d-block`}$/;"	c
 Name	containers/AnswerPollStatistics.js	/^              className={`border border-${background} border-left-0 border-top-0 border-right-0`}$/;"	c
 Name	containers/AnswerPollStatistics.js	/^        className={`text-${color}`}$/;"	c
 Name	containers/DisplayQuestions.js	/^                <button className={`btn btn-outline-${color}`}>$/;"	c
-Name	containers/DisplayQuestions.js	/^            <MdViewList className={`text-${color} plus-icons `} \/>$/;"	c
-Name	containers/Header.js	/^                  <Button className={`btn-${background}`}>logout<\/Button>$/;"	c
+Name	containers/Header.js	/^                  <PopoverHeader className={`bg-${background} ${color}`}>login as :{id}<\/PopoverHeader>$/;"	c
+Name	containers/Header.js	/^                  <button className={`btn btn-${background}`}>logout<\/button>$/;"	c
+Name	containers/Header.js	/^                <NavLink className={`${color}`} onClick={this.logout} to="\/">$/;"	c
 Name	containers/Header.js	/^                <NavLink className={`text-${background}`} id="Popover1" onClick={this.togglePopHover}> name:$/;"	c
-Name	containers/Header.js	/^                <NavLink className={`text-${background}`} onClick={this.logout} to="\/">$/;"	c
 Name	containers/Header.js	/^                <NavLink className={`text-${background}`} tag={Link} to="\/">$/;"	c
 Name	containers/Header.js	/^                <NavLink className={`text-${background}`} tag={Link} to="\/add">$/;"	c
 Name	containers/Header.js	/^                <NavLink className={`text-${background}`} tag={Link} to="\/leaderboard">$/;"	c
-Name	containers/Header.js	/^          <NavbarBrand className={`text-${background}`} href="\/">Game<\/NavbarBrand>$/;"	c
-Name	containers/Home.js	/^                    {authedUser } Answered  <Badge className={`bg-${background}`} color={background}>{ questionsAnswered.length}<\/Badge> games$/;"	c
-Name	containers/Home.js	/^              className={classnames({ active: this.state.activeTab === '1' })}$/;"	c
-Name	containers/Home.js	/^              className={classnames({ active: this.state.activeTab === '2' })}$/;"	c
+Name	containers/Header.js	/^          <NavLink className={`text-${background} navbar-brand`} tag={Link} to="\/">$/;"	c
+Name	containers/Home.js	/^                      {authedUser } Answered  <Badge className={`bg-${background}`} color={background}>{ questionsAnswered.length}<\/Badge> games$/;"	c
+Name	containers/Home.js	/^                className={classnames({ active: this.state.activeTab === '1' })}$/;"	c
+Name	containers/Home.js	/^                className={classnames({ active: this.state.activeTab === '2' })}$/;"	c
 Name	containers/LeaderBoard.js	/^                className={(i % 2 === 0) ? `table-${color}` : ''}$/;"	c
+Name	containers/LeaderBoard.js	/^            <tr className={`bg-${background} ${color}`}>$/;"	c
+Number	utils/template.js	/^  const randNumber = random(0, randColor.length - 1)$/;"	c
 One	reducers/questions.js	/^          optionOne: {$/;"	c
 One	reducers/questions.js	/^      \/\/ optionOne: {$/;"	c
 One	utils/_DATA.js	/^    optionOne: {$/;"	c
@@ -77,20 +75,19 @@ OptionOne	containers/Add.js	/^  handleOptionOne = (event) => {$/;"	c
 OptionTwo	containers/Add.js	/^  handleOptionTwo = (event) => {$/;"	c
 PageNotFound	components/PageNotFound.js	/^class PageNotFound extends Component {$/;"	c
 PopHover	containers/Header.js	/^  togglePopHover = () => {$/;"	c
-Question	containers/LeaderBoard.js	/^                  <LeaderBoardList list={user.answers} totalQuestion={totalQuestion} \/>$/;"	c
+Question	containers/LeaderBoard.js	/^                  <LeaderBoardUnAnswered list={user.answers} totalQuestion={totalQuestion} \/>$/;"	c
 Question	utils/_DATA.js	/^    const formattedQuestion = formatQuestion(question)$/;"	c
-Questions	containers/Home.js	/^                  idQuestions={item}$/;"	c
+Questions	containers/Home.js	/^                      idQuestions={item}$/;"	c
 RECEIVES_QUESTIONS	actions/questions.js	/^export const RECEIVES_QUESTIONS = 'RECEIVES_QUESTIONS'$/;"	n
 RECEIVES_USERS	actions/users.js	/^export const RECEIVES_USERS = 'RECEIVE_USERS'$/;"	n
 SET_AUTHED_USER	actions/authedUser.js	/^export const SET_AUTHED_USER = 'SET_AUTHED_USER'$/;"	n
 Size	containers/UnAnsweredPoll.js	/^              <RadioButton buttonStyling="test" iconSize={20} rootColor={themeColor} value="optionTwo">$/;"	c
 Size	containers/UnAnsweredPoll.js	/^              <RadioButton iconSize={20} pointStyling="test2" rootColor={themeColor} value="optionOne">$/;"	c
 State	reducers/questions.js	/^      const updateState = {$/;"	c
-Submit	containers/Add.js	/^            <form onSubmit={this.handleSubmit} style={{ width: '100%'}}>$/;"	c
+Submit	containers/Add.js	/^            <form onSubmit={this.handleSubmit} style={{ width: '100%' }}>$/;"	c
 Submit	containers/Add.js	/^  handleSubmit = (e) => { \/\/ submit button$/;"	c
-Tab	containers/Home.js	/^        <TabContent activeTab={this.state.activeTab} className="">$/;"	c
+Tab	containers/Home.js	/^          <TabContent activeTab={this.state.activeTab} className="">$/;"	c
 Theme	containers/UnAnsweredPoll.js	/^  colorsTheme = (background, color) => {$/;"	c
-Theme	containers/test.js	/^  colorsTheme = () => {$/;"	c
 Two	reducers/questions.js	/^          optionTwo: {$/;"	c
 Two	reducers/questions.js	/^      \/\/ optionTwo: {$/;"	c
 Two	utils/_DATA.js	/^    optionTwo: {$/;"	c
@@ -112,17 +109,16 @@ am8ehyc8byjqgar0jgpub9	utils/_DATA.js	/^  am8ehyc8byjqgar0jgpub9: {$/;"	o
 answers	reducers/users.js	/^          answers: {$/;"	o
 answers	utils/_DATA.js	/^          answers: {$/;"	o
 answers	utils/_DATA.js	/^    answers: {$/;"	o
-as	containers/Header.js	/^                  <PopoverHeader>login as :{id}<\/PopoverHeader>$/;"	o
+as	containers/Header.js	/^                  <PopoverHeader className={`bg-${background} ${color}`}>login as :{id}<\/PopoverHeader>$/;"	o
 authedUser	reducers/authedUser.js	/^export default function authedUser(state = null, action) {$/;"	f
 by	containers/DisplayQuestions.js	/^          <CardSubtitle className="d-flex align-items-center">Create by: {user.name}<\/CardSubtitle>$/;"	o
 changeTemplate	actions/template.js	/^export function changeTemplate(color) {$/;"	f
 chooseQuestion	actions/choose.js	/^export function chooseQuestion(id, userId, value) {$/;"	f
 componentDidMount	containers/App.js	/^  componentDidMount() {$/;"	f
-componentDidMount	containers/Home.js	/^  componentDidMount() {$/;"	f
+componentDidMount	containers/Home.js	/^    componentDidMount() {$/;"	f
 for	containers/AnsweredPoll.js	/^  for (let i = 0, len = arrayTotalAnswers.length; i < len; i++) {$/;"	f
 for	containers/AnsweredPoll.js	/^  for (let i = 0, len = flat.length; i < len; i++) {$/;"	f
 for	containers/Poll.js	/^  for (let i = 0, len = temp.length; i < len; i++) {$/;"	f
-for	utils/template.js	/^  for (let i = 0, len = objColor.length; i < len; i++) {$/;"	f
 formatDate	utils/helper.js	/^export function formatDate(timestamp) {$/;"	f
 formatQuestion	utils/_DATA.js	/^function formatQuestion({ optionOneText, optionTwoText, author }) {$/;"	f
 generateUID	utils/_DATA.js	/^export function generateUID() {$/;"	f
@@ -138,25 +134,26 @@ if	containers/AnsweredPoll.js	/^      if (arrayTotalAnswers[i] === 'optionOne') 
 if	containers/AnsweredPoll.js	/^      } else if (arrayTotalAnswers[i] === 'optionTwo') {$/;"	f
 if	containers/AnsweredPoll.js	/^    if (i % 2 === 0 && flat[i] === idQuestion) {$/;"	f
 if	containers/AnsweredPoll.js	/^    if (i % 2 === 1) {$/;"	f
+if	containers/App.js	/^    if (this.props.authedUser === null) { \/\/ user is not logged launch the modal$/;"	f
 if	containers/App.js	/^    if (this.props.color === undefined) {$/;"	f
 if	containers/DisplayQuestions.js	/^    if (idQuestions === null) {$/;"	f
-if	containers/DisplayQuestions.js	/^  \/\/if (idQuestions !== null) {$/;"	f
-if	containers/Home.js	/^    if (this.props.authedUser === null) { \/\/user is not logged launch the modal$/;"	f
-if	containers/Home.js	/^    if (this.state.activeTab !== tab) {$/;"	f
+if	containers/DisplayQuestions.js	/^  \/\/ if (idQuestions !== null) {$/;"	f
+if	containers/Home.js	/^      \/\/ if (this.props.authedUser === null) { \/\/user is not logged launch the modal$/;"	f
+if	containers/Home.js	/^      if (this.state.activeTab !== tab) {$/;"	f
 if	containers/Poll.js	/^      if (vote) {$/;"	f
 if	containers/Poll.js	/^    if (question !== null && authedUser) { \/\/ load the question object$/;"	f
 if	containers/Poll.js	/^    if (temp[i] !== id) {$/;"	f
 if	containers/Poll.js	/^    if (this.props.redirectDynamicly) {$/;"	f
 if	containers/Poll.js	/^    } else if (temp[i] === id) {$/;"	f
-if	utils/template.js	/^  if (randColor === undefined) {$/;"	f
 johndoe	utils/_DATA.js	/^  johndoe: {$/;"	o
 loxhs1bqm25b708cmbf3g	utils/_DATA.js	/^  loxhs1bqm25b708cmbf3g: {$/;"	o
 mapStateToProps	containers/Add.js	/^function mapStateToProps({ authedUser, template }) {$/;"	f
 mapStateToProps	containers/AnswerPollStatistics.js	/^function mapStateToProps({ template }, props) {$/;"	f
 mapStateToProps	containers/AnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }, { question }) {$/;"	f
-mapStateToProps	containers/App.js	/^function mapStateToProps({ template }, props) {$/;"	f
+mapStateToProps	containers/App.js	/^function mapStateToProps({ template, authedUser }, props) {$/;"	f
 mapStateToProps	containers/Header.js	/^function mapStateToProps({ authedUser, users, template }) {$/;"	f
 mapStateToProps	containers/LeaderBoard.js	/^function mapStateToProps({ users, questions, template }) {$/;"	f
+mapStateToProps	containers/LeaderBoardAnswered.js	/^function mapStateToProps({ users }) {$/;"	f
 mapStateToProps	containers/UnAnsweredPoll.js	/^function mapStateToProps({ users, authedUser, template }) {$/;"	f
 mapToStateProps	components/UsersFormSelect.js	/^function mapToStateProps({ users }) {$/;"	f
 mapToStateProps	containers/Modal.js	/^function mapToStateProps({ authedUsers }) {$/;"	f
@@ -178,23 +175,23 @@ render	containers/AnsweredPoll.js	/^  render() {$/;"	f
 render	containers/App.js	/^  render() {$/;"	f
 render	containers/DisplayQuestions.js	/^  render() {$/;"	f
 render	containers/Header.js	/^  render() {$/;"	f
-render	containers/Home.js	/^  render() {$/;"	f
+render	containers/Home.js	/^    render() {$/;"	f
 render	containers/LeaderBoard.js	/^  render() {$/;"	f
-render	containers/LeaderBoardList.js	/^  render() {$/;"	f
+render	containers/LeaderBoardAnswered.js	/^  render() {$/;"	f
+render	containers/LeaderBoardUnAnswered.js	/^  render() {$/;"	f
 render	containers/Modal.js	/^  render() {$/;"	f
 render	containers/Poll.js	/^  render() {$/;"	f
 render	containers/UnAnsweredPoll.js	/^  render() {$/;"	f
 sarahedo	utils/_DATA.js	/^  sarahedo: {$/;"	o
 setAuthedUser	actions/authedUser.js	/^export function setAuthedUser(id) {$/;"	f
 switch	containers/UnAnsweredPoll.js	/^    switch (background) {$/;"	f
-switch	containers/test.js	/^    switch (background) {$/;"	f
 switch	reducers/authedUser.js	/^  switch (action.type) {$/;"	f
 switch	reducers/questions.js	/^  switch (action.type) {$/;"	f
 switch	reducers/template.js	/^  switch (action.type) {$/;"	f
 switch	reducers/users.js	/^  switch (action.type) {$/;"	f
 template	reducers/template.js	/^export default function template(state = {}, action) {$/;"	f
 templateBootstrap	utils/template.js	/^export default function templateBootstrap(darked = '') {$/;"	f
-toggle	containers/Home.js	/^  toggle(tab) {$/;"	f
+toggle	containers/Home.js	/^    toggle(tab) {$/;"	f
 tylermcginnis	utils/_DATA.js	/^  tylermcginnis: {$/;"	o
 unAuthedUser	actions/unAuthedUser.js	/^export function unAuthedUser(id) {$/;"	f
 users	reducers/users.js	/^export function users(state = {}, action) {$/;"	f

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 import { connect } from 'react-redux'
+import { Badge } from 'reactstrap'
 import LeaderBoardUnAnswered from './LeaderBoardUnAnswered'
 import LeaderBoardAnswered from './LeaderBoardAnswered'
 
@@ -28,17 +29,33 @@ class LeaderBoard extends Component {
                 className={(i % 2 === 0) ? `table-${color}` : ''}
               >
                 <td className="font-weight-bold text-center">{i + 1}  </td>
-                <td>
-                  <img alt={`avatar of ${user.name}`} className="rounded-circle mr-2" src={user.avatarURL} style={{ height: '40px', width: '40px' }} />
+                <td style={{ verticalAlign: 'inherit' }} valign="center">
+                  <img
+                    alt={`avatar of ${user.name}`}
+                    className="rounded-circle mr-2"
+                    src={user.avatarURL}
+                    style={{ height: '40px', width: '40px' }}
+                  />
                   {user.name}
                 </td>
-                <td>{user.questions && user.questions.length}</td>
-                <td>
+                <td align="center" style={{ verticalAlign: 'inherit' }} valign="center">
+                  {user.questions && (
+                  <Badge
+                    color={background}
+                    style={{ fontSize: '1rem' }}
+                  >
+                    {user.questions.length}
+                  </Badge>
+
+                  )}
+                </td>
+                <td align="center" style={{ verticalAlign: 'inherit' }} valign="center">
                   <LeaderBoardAnswered id={user.id} />
                 </td>
-                <td>
+                <td align="center" style={{ verticalAlign: 'inherit' }} valign="center">
                   <LeaderBoardUnAnswered list={user.answers} totalQuestion={totalQuestion} />
                 </td>
+
               </tr>
             ))}
           </tbody>
