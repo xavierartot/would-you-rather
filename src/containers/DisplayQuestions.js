@@ -12,7 +12,7 @@ import { ListGroup, ListGroupItem, Badge, CardSubtitle } from 'reactstrap'
 class DisplayQuestions extends Component {
   render() {
     const {
-      idQuestions, user, color, background,
+      idQuestions, color, background,
     } = this.props
 
     // console.log(idQuestions )
@@ -60,7 +60,7 @@ function mapStateToProps({
   // }
   return {
     idQuestions: questions[idQuestions] || null,
-    user: users[authedUser],
+    // user: users[authedUser],
     color: template.color,
     background: template.background,
     // timestamp: time,
