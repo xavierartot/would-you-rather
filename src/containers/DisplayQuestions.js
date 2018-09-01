@@ -23,7 +23,8 @@ class DisplayQuestions extends Component {
     return (
       <div>
         <div className="d-flex justify-content-between mb-3">
-          <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle>
+          {/*  <CardSubtitle className="d-flex align-items-center">Create by: {user.name}</CardSubtitle> */}
+          <CardSubtitle className="d-flex align-items-center h4">Would You Rather</CardSubtitle>
         </div>
         <div className="card-text">
           <ListGroup>

@@ -47,7 +47,7 @@ class Header extends Component {
       <div className="Header mb-3">
         <Navbar color="light" expand="md" light>
           <NavLink className={`text-${background} navbar-brand`} tag={Link} to="/">
-            Game
+            Would You Rather
           </NavLink>
           <NavbarToggler onClick={this.toggle} style={{ borderColor: `${background}` }} />
           <Collapse isOpen={this.state.isOpen} navbar>
